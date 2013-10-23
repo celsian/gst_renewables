@@ -22,6 +22,16 @@
 en:
   hello: "Hello world"
   activerecord:
+    models:
+      pv_commission: "PV Commission"
     attributes:
       project:
         name: "Name"
+      pv_commission:
+        reference_number: "Reference Number"
+        dc_system_size: "DC System Size"
+        module_make_model: "Module Make/Model"
+        combiner_make_model: "Combiner Make/Model"
+        recombiner_make_model: "Re-Combiner Make/Model"
+        inverter_make_model: "Inverter Make/Model"
+        das_system_manufacturer: "DAS System Manufacturer"
