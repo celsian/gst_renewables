@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @pv_commissions = @project.pv_commissions
   end
 
   def new
