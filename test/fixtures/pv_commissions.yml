@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  reference_number: MyString
+  owner: MyString
+  dc_system_size: MyString
+  module_make_model: MyString
+  module_quanitity: MyString
+  combiner_make_model: MyString
+  recombiner_make_model: MyString
+  inverter_make_model: MyString
+  inverter_serial_number: MyString
+  das_system_manufacturer: MyString
+
+two:
+  reference_number: MyString
+  owner: MyString
+  dc_system_size: MyString
+  module_make_model: MyString
+  module_quanitity: MyString
+  combiner_make_model: MyString
+  recombiner_make_model: MyString
+  inverter_make_model: MyString
+  inverter_serial_number: MyString
+  das_system_manufacturer: MyString
