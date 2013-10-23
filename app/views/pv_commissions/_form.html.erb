@@ -1,0 +1,67 @@
+<%= form_for @pv_commission do |f| %>
+
+<div class="form-horizontal">
+    <%= f.hidden_field :project_id, value: params[:project_id] %>
+  <div class="control-group">
+    <%= f.label :reference_number, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :reference_number, autofocus: true, placeholder: "Reference Number" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :owner, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :owner, placeholder: "Owner" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :dc_system_size, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :dc_system_size, placeholder: "DC System Size" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :module_make_model, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :module_make_model, placeholder: "Module Make/Model" %> <%= f.text_field :module_quanitity, placeholder: "Quantity", class: "input-mini" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :combiner_make_model, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :combiner_make_model, placeholder: "Combiner Make/Model" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :recombiner_make_model, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :recombiner_make_model, placeholder: "Re-Combiner Make/Model" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :inverter_make_model, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :inverter_make_model, placeholder: "Inverter Make/Model" %> <%= f.text_field :inverter_serial_number, placeholder: "Inverter Serial Number", class: "input-medium" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :das_system_manufacturer, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :das_system_manufacturer, placeholder: "DAS System Manufacturer" %>
+    </div>
+  </div>
+
+
+
+</div>
+
+<div id="error_explanation">
+    <% if @pv_commission.errors.any? %>
+      <%= render "errors", object: f.object %>
+    <% end %>
+</div>
+
+  <%= f.submit class: 'btn btn-primary'  %>
+<% end %>
+
+<!-- :combiner_make_model, :recombiner_make_model, :inverter_make_model, :inverter_serial_number, :das_system_manufacturer --!>
