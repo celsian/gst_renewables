@@ -1,2 +1,12 @@
 <h1>Project: <%= @project.name %></h1>
-<%= link_to "Edit", edit_project_path %> | <%= link_to "Delete Project", @student, data: { confirm: "Are you sure you want to permanently delete this project?" }, method: :delete %>
+<%= link_to "Edit", edit_project_path %> | <%= link_to "Delete Project", @project, data: { confirm: "Are you sure you want to permanently delete this project?" }, method: :delete %>
+<br>
+<br>
+<%= link_to "New PV Commissioning", new_pv_commission_path(project_id: @project.id) %>
+<br>
+<br>
+<ul>
+<% @pv_commissions.each do |pv_commission| %>
+  <li><%= link_to "#{pv_commission.reference_number}", pv_commission %></li>
+<% end %>
+</ul>
