@@ -1,0 +1,15 @@
+<%= form_for @project do |f| %>
+
+<div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
+</div>
+
+<div id="error_explanation">
+    <% if @project.errors.any? %>
+      <%= render "errors", object: f.object %>
+    <% end %>
+</div>
+
+  <%= f.submit class: 'btn btn-primary'  %>
+<% end %>
