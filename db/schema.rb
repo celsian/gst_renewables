@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023155839) do
+ActiveRecord::Schema.define(version: 20131023212135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,24 @@ ActiveRecord::Schema.define(version: 20131023155839) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "pv_commissions", force: true do |t|
+    t.string   "reference_number"
+    t.string   "owner"
+    t.string   "dc_system_size"
+    t.string   "module_make_model"
+    t.string   "module_quanitity"
+    t.string   "combiner_make_model"
+    t.string   "recombiner_make_model"
+    t.string   "inverter_make_model"
+    t.string   "inverter_serial_number"
+    t.string   "das_system_manufacturer"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pv_commissions", ["project_id"], name: "index_pv_commissions_on_project_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
