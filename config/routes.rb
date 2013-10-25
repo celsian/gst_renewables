@@ -3,6 +3,7 @@ GstRenewables::Application.routes.draw do
   root to: "projects#index"
   resources :projects
   resources :pv_commissions
+  resources :pv_array_tests
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
