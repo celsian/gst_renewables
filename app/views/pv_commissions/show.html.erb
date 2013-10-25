@@ -1,1 +1,42 @@
 <H2>Reference Number: <%= @pv_commission.reference_number %></h2>
+<h4>Created on: <%= @pv_commission.created_at.in_time_zone("Pacific Time (US & Canada)").asctime %></h4>
+<table class="table table-striped" width=75%>
+  <tr>
+    <td width=30%><B>Owner:</B></td><td width=70%><%= @pv_commission.owner %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>DC System Size:</B></td><td width=70%><%= @pv_commission.dc_system_size %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>Module:</B></td><td width=70%><%= @pv_commission.module_make_model %></td>
+  </tr>
+  <tr></tr><!--to keep Module and Quantity the same color -->
+  <tr>
+    <td width=30%><B>Quantity:</B><td width=70%><%= @pv_commission.module_quantity %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>Combiner:</B></td><td width=70%><%= @pv_commission.combiner_make_model %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>Re-Combiner:</B></td><td width=70%><%= @pv_commission.recombiner_make_model %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>Inverter:</B></td><td width=70%><%= @pv_commission.inverter_make_model %></td>
+  </tr>
+  <tr></tr><!--to keep Inverter and Serial the same color -->
+  <tr>
+    <td width=30%><B>Serial:</B></td><td width=70%><%= @pv_commission.inverter_serial_number %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>DAS System Manufacturer:</B></td><td width=70%><%= @pv_commission.das_system_manufacturer %></td>
+  </tr>
+</table>
+<br>
+<table class="table table-striped" width=75%>
+  <tr>
+    <td><center><B>Visual Inspection</td><td><center><B>PV Array Test</td><td><center><B>Inverter Insepction</td>
+  </tr>
+  <tr>
+    <td><center>Incomplete - <%= link_to "Add" %></td><td><center>Incomplete - <%= link_to "Add" %></td><td><center>Incomplete - <%= link_to "Add" %></td>
+  </tr>
+</table>
