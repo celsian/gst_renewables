@@ -1,5 +1,4 @@
 <%= form_for @pv_commission do |f| %>
-
 <div class="form-horizontal">
     <%= f.hidden_field :project_id, value: params[:project_id] %>
   <div class="control-group">
@@ -23,7 +22,7 @@
   <div class="control-group">
     <%= f.label :module_make_model, class: "control-label" %>
     <div class="controls">
-      <%= f.text_field :module_make_model, placeholder: "Module Make/Model" %> <%= f.text_field :module_quanitity, placeholder: "Quantity", class: "input-mini" %>
+      <%= f.text_field :module_make_model, placeholder: "Module Make/Model" %> <%= f.text_field :module_quantity, placeholder: "Quantity", class: "input-mini" %>
     </div>
   </div>
   <div class="control-group">
@@ -50,9 +49,6 @@
       <%= f.text_field :das_system_manufacturer, placeholder: "DAS System Manufacturer" %>
     </div>
   </div>
-
-
-
 </div>
 
 <div id="error_explanation">
@@ -64,4 +60,4 @@
   <%= f.submit class: 'btn btn-primary'  %>
 <% end %>
 
-<!-- :combiner_make_model, :recombiner_make_model, :inverter_make_model, :inverter_serial_number, :das_system_manufacturer --!>
+<!--  :combiner_make_model, :recombiner_make_model, :inverter_make_model, :inverter_serial_number, :das_system_manufacturer --!>
