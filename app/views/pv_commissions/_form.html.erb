@@ -1,6 +1,6 @@
 <%= form_for @pv_commission do |f| %>
 <div class="form-horizontal">
-    <%= f.hidden_field :project_id, value: params[:project_id] %>
+    <% if params[:project_id] %><%= f.hidden_field :project_id, value: params[:project_id] %><% end %>
   <div class="control-group">
     <%= f.label :reference_number, class: "control-label" %>
     <div class="controls">
