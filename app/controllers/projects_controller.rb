@@ -27,11 +27,6 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
-  def destroy
-    Project.find(params[:id]).destroy
-    redirect_to projects_path, flash: {success: "Project was deleted."}
-  end
-
   def update
     project = Project.find(params[:id])
     project.attributes = project_params
@@ -40,6 +35,11 @@ class ProjectsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    Project.find(params[:id]).destroy
+    redirect_to projects_path, flash: {success: "Project was deleted."}
   end
 
   private
