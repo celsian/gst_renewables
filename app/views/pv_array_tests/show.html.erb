@@ -1,0 +1,23 @@
+<span class="span7">
+  <H1>PV Array Test:</h1>
+</span>
+<span class="span1">
+  <p class="text-right"><button class="btn btn-mini btn-primary" type="button"><%= link_to "Edit", edit_pv_array_test_path(@pv_array_test), {style: 'color:#FFFFFF;'} %></button></p>
+</span>
+
+<table class="table table-striped">
+  <tr>
+    <td class="c">Combiner Exterior Picture</td><td class="c">Combiner Interior Picture</td><td class="c">Combiner FLIR Picture</td>
+  </tr>
+  <tr>
+    <td class="c">
+  <%= link_to image_tag(@pv_array_test.combiner_exterior_pic_url(:thumb).to_s), @pv_array_test.combiner_exterior_pic_url.to_s %>
+    </td>
+    <td class="c">
+  <%= link_to image_tag(@pv_array_test.combiner_interior_pic_url(:thumb).to_s), @pv_array_test.combiner_interior_pic_url.to_s %>
+    </td>
+    <td class="c">
+  <%= link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb).to_s), @pv_array_test.combiner_flir_pic_url.to_s %>
+    </td>
+  </tr>
+</table>
