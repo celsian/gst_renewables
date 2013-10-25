@@ -13,12 +13,27 @@ class PvCommissionsController < ApplicationController
 
   def create
     pv_commission = PvCommission.new(pv_commission_params)
-    # pv_commission.project = params[:project_id]
 
     if pv_commission.save
       redirect_to pv_commission, flash: {success: "PV Commissioning was created."}
     else
       render :new
+    end
+  end
+
+  def edit
+    @pv_commission = PvCommission.find(params[:id])
+  end
+
+  def update
+    pv_commission = PvCommission.find(params[:id])
+
+    pv_commission.attributes = pv_commission_params
+
+    if pv_commission.save
+      redirect_to pv_commission, flash: {success: "PV Commission was updated."}
+    else
+      render :edit
     end
   end
 
