@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023212135) do
+ActiveRecord::Schema.define(version: 20131025005815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20131023212135) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "pv_array_tests", force: true do |t|
+    t.integer  "pv_commission_id"
+    t.string   "combiner_exterior_pic"
+    t.string   "combiner_interior_pic"
+    t.string   "combiner_flir_pic"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pv_array_tests", ["pv_commission_id"], name: "index_pv_array_tests_on_pv_commission_id", using: :btree
 
   create_table "pv_commissions", force: true do |t|
     t.string   "reference_number"
