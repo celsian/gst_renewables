@@ -10,6 +10,7 @@ gem 'rails', '4.0.0'
 gem "pg"
 
 gem 'carrierwave'
+gem 'rmagick'
 
 gem 'devise'
 gem "twitter-bootstrap-rails"
