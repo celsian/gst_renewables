@@ -1,5 +1,6 @@
-<H2>Reference Number: <%= @pv_commission.reference_number %></h2>
-<h4>Created on: <%= @pv_commission.created_at.in_time_zone("Pacific Time (US & Canada)").asctime %></h4>
+<span class="span8"><H2>Reference Number: <%= @pv_commission.reference_number %></h2></span>
+<span class="span7"><h4>Created on: <%= @pv_commission.created_at.in_time_zone("Pacific Time (US & Canada)").asctime %></h4></span><span class="span1"><p class="text-right"><button class="btn btn-mini btn-primary" type="button"><%= link_to "Edit", edit_pv_commission_path(@pv_commission), {style: 'color:#FFFFFF;'} %></button></p></span>
+
 <table class="table table-striped" width=75%>
   <tr>
     <td width=30%><B>Owner:</B></td><td width=70%><%= @pv_commission.owner %></td>
@@ -32,11 +33,19 @@
   </tr>
 </table>
 <br>
-<table class="table table-striped" width=75%>
+<table class="table table-striped">
   <tr>
-    <td><center><B>Visual Inspection</td><td><center><B>PV Array Test</td><td><center><B>Inverter Insepction</td>
+    <td class="c"><B>Visual Inspection</td><td class="c"><B>PV Array Test</td><td class="c"><B>Inverter Insepction</td>
   </tr>
   <tr>
-    <td><center>Incomplete - <%= link_to "Add" %></td><td><center>Incomplete - <%= link_to "Add" %></td><td><center>Incomplete - <%= link_to "Add" %></td>
+    <td class="c">Incomplete - <%= link_to "Add" %></td>
+      <td class="c">
+        <% if @pv_commission.pv_array_test %>
+          <%= link_to "Click to View", @pv_commission.pv_array_test %>
+        <% else %>
+          Incomplete - <%= link_to "Add", new_pv_array_test_path(pv_commission_id: @pv_commission.id) %>
+        <% end %>
+      </td>
+    <td class="c">Incomplete - <%= link_to "Add" %></td>
   </tr>
 </table>
