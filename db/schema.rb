@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20131023212135) do
     t.string   "owner"
     t.string   "dc_system_size"
     t.string   "module_make_model"
-    t.string   "module_quanitity"
+    t.string   "module_quantity"
     t.string   "combiner_make_model"
     t.string   "recombiner_make_model"
     t.string   "inverter_make_model"
