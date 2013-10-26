@@ -24,14 +24,22 @@ en:
   activerecord:
     models:
       pv_commission: "PV Commission"
+      pv_array_test: "PV Array Test"
     attributes:
       project:
         name: "Name"
       pv_commission:
         reference_number: "Reference Number"
         dc_system_size: "DC System Size"
+        ac_system_size: "AC System Size"
         module_make_model: "Module Make/Model"
         combiner_make_model: "Combiner Make/Model"
         recombiner_make_model: "Re-Combiner Make/Model"
         inverter_make_model: "Inverter Make/Model"
         das_system_manufacturer: "DAS System Manufacturer"
+      pv_array_test:
+        test_instruments: "Test Instruments"
+        mfg: "MFG"
+        combiner_exterior_pic: "Combiner Exterior Picture"
+        combiner_interior_pic: "Combiner Interior Picture"
+        combiner_flir_pic: "Combiner FLIR Picture"
