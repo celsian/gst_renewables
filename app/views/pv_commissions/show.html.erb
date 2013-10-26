@@ -9,6 +9,9 @@
     <td width=30%><B>DC System Size:</B></td><td width=70%><%= @pv_commission.dc_system_size %></td>
   </tr>
   <tr>
+    <td width=30%><B>AC System Size:</B></td><td width=70%><%= @pv_commission.ac_system_size %></td>
+  </tr>
+  <tr>
     <td width=30%><B>Module:</B></td><td width=70%><%= @pv_commission.module_make_model %></td>
   </tr>
   <tr></tr><!--to keep Module and Quantity the same color -->
@@ -33,19 +36,27 @@
   </tr>
 </table>
 <br>
+
+
 <table class="table table-striped">
   <tr>
     <td class="c"><B>Visual Inspection</td><td class="c"><B>PV Array Test</td><td class="c"><B>Inverter Insepction</td>
   </tr>
   <tr>
     <td class="c">Incomplete - <%= link_to "Add" %></td>
-      <td class="c">
-        <% if @pv_commission.pv_array_test %>
-          <%= link_to "Click to View", @pv_commission.pv_array_test %>
-        <% else %>
-          Incomplete - <%= link_to "Add", new_pv_array_test_path(pv_commission_id: @pv_commission.id) %>
+
+    <td class="c">
+      <% if @pv_commission.pv_array_tests != [] %>
+        <% @pv_commission.pv_array_tests.each do |pv_array_test| %>
+          <%= link_to "Test: #{pv_array_test.test_number}", pv_array_test %><br>
         <% end %>
-      </td>
+        <br><%= link_to "Add Additional", new_pv_array_test_path(pv_commission_id: @pv_commission.id) %>
+      <% else %>
+        Incomplete - <%= link_to "Add", new_pv_array_test_path(pv_commission_id: @pv_commission.id) %>
+      <% end %>
+    </td>
+
     <td class="c">Incomplete - <%= link_to "Add" %></td>
+
   </tr>
 </table>
