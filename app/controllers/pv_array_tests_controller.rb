@@ -14,6 +14,8 @@ class PvArrayTestsController < ApplicationController
   def create
     pv_array_test = PvArrayTest.new(pv_array_test_params)
 
+    pv_array_test.test_number = (pv_array_test.pv_commission.pv_array_tests.length+1).to_s.rjust(3, '0')
+
     if pv_array_test.save
       redirect_to pv_array_test, flash: {success: "PV Array Test was created."}
     else
@@ -27,11 +29,8 @@ class PvArrayTestsController < ApplicationController
 
   def update
     pv_array_test = PvArrayTest.find(params[:id])
-    # pv_commission_id = pv_array_test.pv_commission_id
 
     pv_array_test.update pv_array_test_params
-
-    # pv_array_test.pv_commission_id = pv_commission_id
 
     if pv_array_test.save
       redirect_to pv_array_test, flash: {success: "PV Array Test was updated."}
@@ -44,7 +43,7 @@ class PvArrayTestsController < ApplicationController
   private
 
   def pv_array_test_params
-    params.require(:pv_array_test).permit(:pv_commission_id, :combiner_exterior_pic, :combiner_interior_pic, :combiner_flir_pic)
+    params.require(:pv_array_test).permit(:pv_commission_id, :initial_verification, :inspector, :test_instruments, :combiner, :mfg, :combiner_exterior_pic, :combiner_interior_pic, :combiner_flir_pic)
   end
 
 end
