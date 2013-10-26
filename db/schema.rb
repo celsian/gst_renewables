@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20131025005815) do
 
   create_table "pv_array_tests", force: true do |t|
     t.integer  "pv_commission_id"
+    t.string   "test_number"
+    t.boolean  "initial_verification"
+    t.string   "inspector"
+    t.string   "test_instruments"
+    t.string   "combiner"
+    t.string   "mfg"
     t.string   "combiner_exterior_pic"
     t.string   "combiner_interior_pic"
     t.string   "combiner_flir_pic"
@@ -37,6 +43,7 @@ ActiveRecord::Schema.define(version: 20131025005815) do
     t.string   "reference_number"
     t.string   "owner"
     t.string   "dc_system_size"
+    t.string   "ac_system_size"
     t.string   "module_make_model"
     t.string   "module_quantity"
     t.string   "combiner_make_model"
