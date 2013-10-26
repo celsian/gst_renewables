@@ -1,9 +1,27 @@
 <span class="span7">
-  <H1>PV Array Test:</h1>
+  <H1>PV Array Test: <%= @pv_array_test.test_number %></h1>
 </span>
 <span class="span1">
   <p class="text-right"><button class="btn btn-mini btn-primary" type="button"><%= link_to "Edit", edit_pv_array_test_path(@pv_array_test), {style: 'color:#FFFFFF;'} %></button></p>
 </span>
+
+<table class="table table-striped" width=75%>
+  <tr>
+    <td width=30%><B>Inspector:</B></td><td width=70%><%= @pv_array_test.inspector %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>Verification:</B></td><td width=70%><%= @pv_array_test.initial_verification ? "Initial" : "Periodic" %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>Test Instruments:</B></td><td width=70%><%= @pv_array_test.test_instruments %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>Combiner:</B></td><td width=70%><%= @pv_array_test.combiner %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>MFG:</B></td><td width=70%><%= @pv_array_test.mfg %></td>
+  </tr>
+</table>
 
 <table class="table table-striped">
   <tr>
