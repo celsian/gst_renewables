@@ -4,6 +4,7 @@ class CreatePvCommissions < ActiveRecord::Migration
       t.string :reference_number
       t.string :owner
       t.string :dc_system_size
+      t.string :ac_system_size
       t.string :module_make_model
       t.string :module_quantity
       t.string :combiner_make_model
