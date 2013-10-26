@@ -1,8 +1,22 @@
 <%= form_for @pv_array_test, multipart: true do |f| %>
-    <%= f.label :combiner_exterior_pic %><%= f.file_field :combiner_exterior_pic %>
-    <%= f.label :combiner_interior_pic %><%= f.file_field :combiner_interior_pic %> 
-    <%= f.label :combiner_flir_pic %><%= f.file_field :combiner_flir_pic %> 
+    <div class="btn-group" data-toggle="buttons-radio">
+        <%= f.radio_button :initial_verification, true, :id=>"first", :style=>"display:none;" %>
+        <label for="first" class="btn btn-primary">Initial Verification</label>
+
+        <%= f.radio_button :initial_verification, false, :id=>"second", :style=>"display:none;" %>
+        <label for="second" class="btn btn-primary">Periodic Verification</label>
+    </div>
+
+    <br>
+    <br>
+    <%= f.label :inspector %><%= f.text_field :inspector, autofocus: true, placeholder: "Inspector" %>
+    <%= f.label :test_instruments %><%= f.text_field :test_instruments, placeholder: "Test Instruments" %>
+    <%= f.label :combiner %><%= f.text_field :combiner, placeholder: "Combiner" %>
+    <%= f.label :mfg %><%= f.text_field :mfg, placeholder: "MFG" %>
+    <%= f.label :combiner_exterior_pic %><%= f.file_field :combiner_exterior_pic, class: "btn btn-file" %><br><br>
+    <%= f.label :combiner_interior_pic %><%= f.file_field :combiner_interior_pic, class: "btn btn-file" %><br><br>
+    <%= f.label :combiner_flir_pic %><%= f.file_field :combiner_flir_pic, class: "btn btn-file" %>
     <% if params[:pv_commission_id] %><%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] %><% end %>
-  <br>
-  <%= f.submit %>
+  <br><br>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
