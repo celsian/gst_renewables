@@ -37,6 +37,14 @@ class PvCommissionsController < ApplicationController
     end
   end
 
+  def destroy
+    pv_commission = PvCommission.find(params[:id])
+    reference_number = pv_commission.reference_number
+    project = pv_commission.project
+    pv_commission.destroy
+    redirect_to project, flash: {success: "PV Commission ##{reference_number} was deleted."}
+  end
+
   private
 
   def pv_commission_params
