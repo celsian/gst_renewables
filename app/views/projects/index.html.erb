@@ -1,7 +1,27 @@
-<h1>Projects:</h1>
-<%= link_to "New Project", new_project_path %><br><br>
-<ul>
-<% @projects.each do |project| %>
-  <li><%= link_to "#{project.name}", project %></li>
-<% end %>
-</ul>
+<div class="row">
+  <span class="span7">
+    <H2>Projects: </h2>
+  </span>
+  <span class="span2">
+  </span>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <% @projects.each_with_index do |project, index| %>
+    <tr>
+      <td width=40><%= index+1 %></td><td><%= link_to "#{project.name}", project %></td>
+    </tr>
+  <% end %>
+</table>
+<div class="row">
+  <span class="span9">
+    <button class="btn btn-small btn-primary" type="button">
+      <%= link_to "New Project", new_project_path, {style: 'color:#FFFFFF;'} %>
+    </button>
+  </span>
+</div>
+<br>
