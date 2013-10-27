@@ -48,37 +48,40 @@
           <div class="container nav-collapse">
             <ul class="nav">
               <li><%= link_to "Projects", projects_path   %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
+
 <!-- Navigation breadcrumbs -->
-<div class="span8">
-  <small>
-    <%= link_to "Projects", projects_path %>
-    <% if @project %> > <%= "#{@project.name}" %> <% end %>
-    <% if @pv_commission && @pv_commission.reference_number %> > <%= link_to "#{@pv_commission.project.name}", @pv_commission.project %> > PV Commission: <%= @pv_commission.reference_number %><% end %>
-    <% if @pv_array_test && @pv_array_test.pv_commission %> > <%= link_to "#{@pv_array_test.pv_commission.project.name}", @pv_array_test.pv_commission.project %> > PV Commission: <%= link_to "#{@pv_array_test.pv_commission.reference_number}", @pv_array_test.pv_commission %> > PV Array Test<% end %>
-  </small>
+<div class="container">
+  <div class="row">
+    <div class="span9">
+      <small>
+        <%= link_to "Projects", projects_path %>
+        <% if @project %> > <%= "#{@project.name}" %> <% end %>
+        <% if @pv_commission && @pv_commission.reference_number %> > <%= link_to "#{@pv_commission.project.name}", @pv_commission.project %> > PV Commission: <%= @pv_commission.reference_number %><% end %>
+        <% if @pv_array_test && @pv_array_test.pv_commission %> > <%= link_to "#{@pv_array_test.pv_commission.project.name}", @pv_array_test.pv_commission.project %> > PV Commission: <%= link_to "#{@pv_array_test.pv_commission.reference_number}", @pv_array_test.pv_commission %> > PV Array Test<% end %>
+      </small>
+    </div>
+  </div>
 </div>
 <!-- Navigation breadcrumbs end -->
+
     <div class="container">
         <div class="row">
           <div class="span9">
+
             <%= bootstrap_flash %>
             <%= yield %>
           </div>
           <div class="span3">
             <div class="well sidebar-nav">
-              <h3>Sidebar</h3>
+              <h3>Quick Nav:</h3>
               <ul class="nav nav-list">
                 <li class="nav-header">Sidebar</li>
                 <li><%= link_to "Projects", projects_path %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
               </ul>
             </div><!--/.well -->
           </div><!--/span-->
