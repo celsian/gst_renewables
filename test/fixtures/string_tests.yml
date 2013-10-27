@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  array_module: MyString
+  array_quantity: MyString
+  array_voc: MyString
+  array_isc: MyString
+  string_type: MyString
+  string_rating: MyString
+  string_d_rating: MyString
+  string_capacity: MyString
+  wiring_type: MyString
+  wiring_insulation: MyString
+  wiring_size: MyString
+  string_test_voc: MyString
+  string_test_isc: MyString
+  string_test_irradiance: MyString
+  array_insulation_resistance_test_voltage: MyString
+  array_insulation_resistance_pos: MyString
+  array_insulation_resistance_neg: MyString
+  array_module_flir_pic: MyString
+
+two:
+  array_module: MyString
+  array_quantity: MyString
+  array_voc: MyString
+  array_isc: MyString
+  string_type: MyString
+  string_rating: MyString
+  string_d_rating: MyString
+  string_capacity: MyString
+  wiring_type: MyString
+  wiring_insulation: MyString
+  wiring_size: MyString
+  string_test_voc: MyString
+  string_test_isc: MyString
+  string_test_irradiance: MyString
+  array_insulation_resistance_test_voltage: MyString
+  array_insulation_resistance_pos: MyString
+  array_insulation_resistance_neg: MyString
+  array_module_flir_pic: MyString
