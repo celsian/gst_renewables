@@ -5,6 +5,7 @@ class PvCommissionsController < ApplicationController
 
   def show
     @pv_commission = PvCommission.find(params[:id])
+    @rows = [@pv_commission.pv_array_tests.length].max
   end
 
   def new
