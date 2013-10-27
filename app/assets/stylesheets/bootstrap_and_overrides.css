@@ -6,3 +6,4 @@
   =require twitter-bootstrap-static/fontawesome
   */
   .table td.c { text-align: center; }
+  .table th.c { text-align: center; }
