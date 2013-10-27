@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131025005815) do
+ActiveRecord::Schema.define(version: 20131027210127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,29 @@ ActiveRecord::Schema.define(version: 20131025005815) do
   end
 
   add_index "pv_commissions", ["project_id"], name: "index_pv_commissions_on_project_id", using: :btree
+
+  create_table "string_tests", force: true do |t|
+    t.string   "array_module"
+    t.string   "array_quantity"
+    t.string   "array_parameters_voc"
+    t.string   "array_parameters_isc"
+    t.string   "string_type"
+    t.string   "string_rating"
+    t.string   "string_d_rating"
+    t.string   "string_capacity"
+    t.string   "wiring_type"
+    t.string   "wiring_insulation"
+    t.string   "wiring_size"
+    t.string   "string_test_voc"
+    t.string   "string_test_isc"
+    t.string   "string_test_irradiance"
+    t.string   "array_insulation_resistance_test_voltage"
+    t.string   "array_insulation_resistance_pos"
+    t.string   "array_insulation_resistance_neg"
+    t.string   "array_module_flir_pic"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
