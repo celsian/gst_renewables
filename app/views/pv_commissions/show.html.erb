@@ -62,26 +62,26 @@
     <tr>
       <th class="c">Visual Inspection</th><th class="c"><B>PV Array Test</th><th class="c"><B>Inverter Insepction</th>
     </tr>
-  </thead
+  </thead>
+<!-- the important part -->
+<% 0.upto(@rows-1) do |row| %>
   <tr>
     <td class="c">
-      No Inspection Yet...
+      
     </td>
-
     <td class="c">
-      <% if @pv_commission.pv_array_tests != [] %>
-        <% @pv_commission.pv_array_tests.each do |pv_array_test| %>
-          <%= link_to "Test: #{pv_array_test.test_number}", pv_array_test %><br>
-        <% end %>
+      <% if @pv_commission.pv_array_tests[row] %>
+        <%= link_to "Test: #{@pv_commission.pv_array_tests[row].test_number}", @pv_commission.pv_array_tests[row] %>
       <% else %>
-        No Tests Yet...
+
       <% end %>
     </td>
-
     <td class="c">
-      No Inspection Yet...
+      
     </td>
   </tr>
+<% end %>
+<!-- END the important part -->
   <tr>
     <td class="c">
       <button class="btn btn-small btn-primary" type="button">
