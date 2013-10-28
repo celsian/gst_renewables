@@ -14,10 +14,10 @@ class PvArrayTestsController < ApplicationController
   def create
     pv_array_test = PvArrayTest.new(pv_array_test_params)
 
-    if pv_array_test.pv_commission.pv_array_tests = []
+    if pv_array_test.pv_commission.pv_array_tests == []
       pv_array_test.test_number = "001"
     else
-      pv_array_test.test_number = (pv_array_test.pv_commission.pv_array_tests.last.test_number.to_i+1).to_s.rjust(3, '0')
+      pv_array_test.test_number = ((((pv_array_test.pv_commission.pv_array_tests.last).test_number).to_i)+1).to_s.rjust(3, '0')
     end
 
     if pv_array_test.save
