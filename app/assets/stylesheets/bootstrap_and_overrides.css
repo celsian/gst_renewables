@@ -7,3 +7,13 @@
   */
   .table td.c { text-align: center; }
   .table th.c { text-align: center; }
+  .p {-ms-transform:rotate(270deg); /* IE 9 */ -moz-transform:rotate(270deg); /* Firefox */ -webkit-transform:rotate(270deg); /* Safari and Chrome */ -o-transform:rotate(270deg); /* Opera */ }
+  .vt {
+    writing-mode:tb-rl;
+     filter: flipv fliph;
+    -webkit-transform:rotate(320deg);
+    -moz-transform:rotate(320deg);
+    -o-transform: rotate(320deg);
+    font-size:10px;
+    font-weight:bold;
+}
