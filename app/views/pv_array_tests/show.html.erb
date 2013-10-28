@@ -1,6 +1,6 @@
 <div class="row">
   <span class="span7">
-    <H2>PV Array Test: <%= @pv_array_test.test_number %></h2>
+    <d2>PV Array Test: <%= @pv_array_test.test_number %></h2>
   </span>
   <span class="span2">
     <p class="text-right">
@@ -51,41 +51,68 @@
 
 <table class="table table-striped" border=1>
   <tr>
-    <th width=50px>String ID:</th><td></td>
+    <th class="small" width=75px>String ID</th>
+    <th><!-- format cell --></th><td class="smallc">1BC</td><td class="smallc">2BC</td><td class="smallc">3BC</td><td class="smallc">4BC</td><td class="smallc">5BC</td><td class="smallc">6BC</td><td class="smallc">7BC</td><td class="smallc">8BC</td><td class="smallc">9BC</td><td class="smallc">10BC</td>
   </tr>
   <tr>
-    <th width=50px>Array:</th>
-    <td>
-      <table class="table table-striped">
-        <tr>
-          <td>Module</td>
-        </tr>
-        <tr>
-          <td>Quantity</td>
-        </tr>
-        <tr>
-          <td>Parameters VOC</td>
-        </tr>
-        <tr>
-          <td>Parameters ISC</td>
-        </tr>
-      </table>
-    </td>
+    <th class="small" rowspan="2">Array</th>
+    <th class="small" width=80px>Module</th><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td>
+  </tr>
+    <tr>
+      <th class="small">Quantity</th><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td>
+    </tr>
+  <tr>
+    <th class="small" rowspan="2">Array Parameters</th>
+    <th class="small">Voc (stc)</th><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td>
+  </tr>
+    <tr>
+      <th class="small">Isc (stc)</th><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td>
+    </tr>
+  <tr>
+    <th class="small" rowspan="4">String Over-Current Protective Device</th>
+    <th class="small">Type</th><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td>
+  </tr>
+    <tr>
+      <th class="small">Rating (A)</th><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td>
+    </tr>
+    <tr>
+      <th class="small">D Rating (V)</th><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td>
+    </tr>
+    <tr>
+      <th class="small">Capacity (ka)</th><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td>
+    </tr>
+  <tr>
+    <th class="small" rowspan="3">Wiring</th>
+    <th class="small">Type</th><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td>
   </tr>
   <tr>
-    <th width=50px>String:</th><td><table class="table table-striped"><tr><td>Type</td></tr><tr><td>Rating</td></tr><tr><td>D Rating</td></tr><tr><td>Capacity</td></tr></table></td>
+    <th class="small">Insulation</th><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td>
   </tr>
   <tr>
-    <th width=50px>Wiring:</th><td><table class="table table-striped"><tr><td>Type</td></tr><tr><td>Insulation</td></tr><tr><td>Size</td></tr></table></td>
+    <th class="small">Size</th><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td>
   </tr>
   <tr>
-    <th width=50px>String Test:</th><td><table class="table table-striped"><tr><td>VOC</td></tr><tr><td>ISC</td></tr><tr><td>Irradiance</td></tr></table></td>
+    <th class="small" rowspan="3">String Test</th>
+    <th class="small">Voc (V)</th><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td>
+  </tr>
+    <tr>
+      <th class="small">Isc (A)</th><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td>
+    </tr>
+    <tr>
+      <th class="small">Irradiance</th><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td>
+    </tr>
+  <tr>
+    <th class="small" rowspan="3">Array Insulation Resistance</th>
+    <th class="small">Test Voltage</th><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td>
   </tr>
   <tr>
-    <th width=50px>Array Insulation Resistance:</th><td><table class="table table-striped"><tr><td>Test Voltage</td></tr><tr><td>POS</td></tr><tr><td>NEG</td></tr></table></td>
+      <th class="small">POS</th><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td>
   </tr>
   <tr>
-    <th width=50px>Array FLIR:</th><td></td>
+    <th class="small">NEG</th><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td>
+  </tr>
+  <tr>
+    <th class="small">Array FLIR</th><th class="small">Picture</th><td><%= link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s %></td><td><%= link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s %></td><td><%= link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s %></td><td><%= link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s %></td><td><%= link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s %></td><td><%= link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s %></td><td><%= link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s %></td><td><%= link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s %></td><td><%= link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s %></td><td><%= link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s %></td>
   </tr>
 </table>
 
