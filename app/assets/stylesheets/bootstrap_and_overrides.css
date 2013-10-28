@@ -8,6 +8,8 @@
   .table td.c { text-align: center; }
   .table th.c { text-align: center; }
   .table th.small { font-size:12px; }
+  .table th.smallc { background-color: black; font-size:12px; text-align: center; color:#FFF; }
+  .table tr.black { background-color: black; }
   .table td.small { font-size:12px; }
   .table td.smallc { font-size:11px; text-align: center; }
 
@@ -19,6 +21,6 @@
     -webkit-transform:rotate(320deg);
     -moz-transform:rotate(320deg);
     -o-transform: rotate(320deg);
-    font-size:10px;
+    font-size:10  px;
     font-weight:bold;
 }
