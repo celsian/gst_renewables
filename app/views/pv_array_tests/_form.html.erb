@@ -9,10 +9,21 @@
 
     <br>
     <br>
+    <table width=100%>
+      <tr>
+        <td width=35%>
     <%= f.label :inspector %><%= f.text_field :inspector, autofocus: true, placeholder: "Inspector" %>
     <%= f.label :test_instruments %><%= f.text_field :test_instruments, placeholder: "Test Instruments" %>
     <%= f.label :combiner %><%= f.text_field :combiner, placeholder: "Combiner" %>
     <%= f.label :mfg %><%= f.text_field :mfg, placeholder: "MFG" %>
+        </td>
+        <td style="vertical-align: top;">
+          <p><b>Import Sting Tests:</b></p> 
+          <%= f.label :combiner_exterior_pic %><%= f.file_field :combiner_exterior_pic, class: "btn btn-file" %><br><br>
+          <%= f.label :combiner_interior_pic %><%= f.file_field :combiner_interior_pic, class: "btn btn-file" %><br><br>
+        </td>
+      </tr>
+    </table>
     <%= f.label :combiner_exterior_pic %><%= f.file_field :combiner_exterior_pic, class: "btn btn-file" %><br><br>
     <%= f.label :combiner_interior_pic %><%= f.file_field :combiner_interior_pic, class: "btn btn-file" %><br><br>
     <%= f.label :combiner_flir_pic %><%= f.file_field :combiner_flir_pic, class: "btn btn-file" %>
