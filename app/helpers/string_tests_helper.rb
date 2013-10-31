@@ -1,0 +1,2 @@
+module StringTestsHelper
+end
