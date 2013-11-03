@@ -17,7 +17,9 @@
     </div>
     <div class="span3">
       <p><b>Import Sting Tests (.CSV Only):</b></p> 
-      <%= f.label :combiner_exterior_pic %><%= f.file_field :combiner_exterior_pic, class: "btn btn-file" %><br><br>
+        <%= f.fields_for :string_tests do |builder| %>
+          <%= builder.file_field :pv_array_test, class: "btn btn-file" %>
+        <% end %>
     </div>
   </div>
   <br>
