@@ -1,4 +1,5 @@
 class StringTestsController < ApplicationController
+  
   def show
   end
 
