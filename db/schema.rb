@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20131027210127) do
   add_index "pv_commissions", ["project_id"], name: "index_pv_commissions_on_project_id", using: :btree
 
   create_table "string_tests", force: true do |t|
+    t.integer  "pv_array_test_id"
+    t.string   "name"
     t.string   "array_module"
     t.string   "array_quantity"
     t.string   "array_parameters_voc"
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 20131027210127) do
     t.string   "string_test_voc"
     t.string   "string_test_isc"
     t.string   "string_test_irradiance"
+    t.string   "string_test_voltage"
     t.string   "array_insulation_resistance_test_voltage"
     t.string   "array_insulation_resistance_pos"
     t.string   "array_insulation_resistance_neg"
@@ -80,6 +83,8 @@ ActiveRecord::Schema.define(version: 20131027210127) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "string_tests", ["pv_array_test_id"], name: "index_string_tests_on_pv_array_test_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
