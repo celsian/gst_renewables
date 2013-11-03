@@ -5,10 +5,13 @@ class PvArrayTestsController < ApplicationController
 
   def show
     @pv_array_test = PvArrayTest.find(params[:id])
+    @string_tests = @pv_array_test.string_tests
+    @tables = ((@string_tests.length/10.0).ceil)-1
   end
 
   def new
-    @pv_array_test = PvArrayTest.new()
+    @pv_array_test = PvArrayTest.new
+    @pv_array_test.string_tests.build
   end
 
   def create
@@ -21,6 +24,8 @@ class PvArrayTestsController < ApplicationController
     end
 
     if pv_array_test.save
+      StringTest.import(params["pv_array_test"]["string_tests_attributes"]["0"]["pv_array_test"], pv_array_test) #this passes the single CSV that the user selected which will always be in position 0 because there is only one string_tests.build in the pv_array_test controller
+
       redirect_to pv_array_test, flash: {success: "PV Array Test was created."}
     else
       render :new
