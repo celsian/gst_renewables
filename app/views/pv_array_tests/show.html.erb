@@ -4,12 +4,8 @@
   </span>
   <span class="span2">
     <p class="text-right">
-      <button class="btn btn-small btn-primary" type="button">
-        <%= link_to "Edit", edit_pv_array_test_path(@pv_array_test), {style: 'color:#FFFFFF;'} %>
-      </button>
-      <button class="btn btn-small btn-danger" type="button">
-        <%= link_to "Delete", @pv_array_test, data: { confirm: "Are you sure you want to permanently delete this PV Array Test?" }, style: 'color:#FFFFFF;', method: :delete %>
-      </button>
+        <%= link_to "Edit", edit_pv_array_test_path(@pv_array_test), class: "btn btn-small btn-primary" %>
+        <%= link_to "Delete", @pv_array_test, data: { confirm: "Are you sure you want to permanently delete this PV Array Test?" }, class: "btn btn-small btn-danger", method: :delete %>
     </p>
   </span>
 </div>
@@ -49,71 +45,147 @@
   </tr>
 </table>
 
-<table class="table table-striped" border="1">
-  <tr>
-    <th class="smallck" colspan="2">String ID:</th>
-    <td class="smallck">1BC</td><td class="smallck">2BC</td><td class="smallck">3BC</td><td class="smallck">4BC</td><td class="smallck">5BC</td><td class="smallck">6BC</td><td class="smallck">7BC</td><td class="smallck">8BC</td><td class="smallck">9BC</td><td class="smallck">10BC</td>
-  </tr>
-  <tr>
-    <th class="small" rowspan="2" width=75px>Array</th>
-    <th class="small" width=80px>Module</th><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td><td class="smallc">Yingli YL-230P</td>
-  </tr>
-    <tr>
-      <th class="small">Quantity</th><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td>
-    </tr>
-  <tr>
-    <th class="small" rowspan="2">Array Parameters</th>
-    <th class="small">Voc (stc)</th><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td><td class="smallc">475</td>
-  </tr>
-    <tr>
-      <th class="small">Isc (stc)</th><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td><td class="smallc">6.9</td>
-    </tr>
-  <tr>
-    <th class="small" rowspan="4">String Over-Current Protective Device</th>
-    <th class="small">Type</th><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td><td class="smallc">PV Fuse</td>
-  </tr>
-    <tr>
-      <th class="small">Rating (A)</th><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td><td class="smallc">12</td>
-    </tr>
-    <tr>
-      <th class="small">D Rating (V)</th><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td><td class="smallc">600</td>
-    </tr>
-    <tr>
-      <th class="small">Capacity (ka)</th><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td><td class="smallc">30</td>
-    </tr>
-  <tr>
-    <th class="small" rowspan="3">Wiring</th>
-    <th class="small">Type</th><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td><td class="smallc">Copper</td>
-  </tr>
-  <tr>
-    <th class="small">Insulation</th><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td><td class="smallc">USE-2</td>
-  </tr>
-  <tr>
-    <th class="small">Size</th><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td><td class="smallc">#10 awg</td>
-  </tr>
-  <tr>
-    <th class="small" rowspan="3">String Test</th>
-    <th class="small">Voc (V)</th><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td><td class="smallc">465</td>
-  </tr>
-    <tr>
-      <th class="small">Isc (A)</th><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td><td class="smallc">6.56</td>
-    </tr>
-    <tr>
-      <th class="small">Irradiance</th><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td><td class="smallc">826</td>
-    </tr>
-  <tr>
-    <th class="small" rowspan="3">Array Insulation Resistance</th>
-    <th class="small">Test Voltage</th><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td><td class="smallc">500</td>
-  </tr>
-  <tr>
-      <th class="small">POS</th><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td>
-  </tr>
-  <tr>
-    <th class="small">NEG</th><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td><td class="smallc"><0.05</td>
-  </tr>
-  <tr>
-    <th class="small">Array FLIR</th><th class="small">Picture</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-  </tr>
-</table>
+<% 0.upto(@tables) do |x| %>
+<div class="row">
+  <% if x == @tables && @string_tests.length % 10 != 0 %>
+    <span class="span<%= (((@string_tests.length-x*10)/9.0)*7.0).ceil+2 %>">
+  <% else %>
+    <span class="span9">
+  <% end %>
+    <table class="table table-striped" border="1">
+      <tr>
+        <th class="smallck" colspan="2">String ID:</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <td class="smallck"><%= st.name %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small" rowspan="2" width=75px>Array</th>
+        <th class="small" width=80px>Module</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <td class="smallc"><%= st.array_module %></td>
+        <% end %>
+      </tr>
+        <tr>
+          <th class="small">Quantity</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <td class="smallc"><%= st.array_quantity %></td>
+          <% end %>
+        </tr>
+      <tr>
+        <th class="small" rowspan="2">Array Parameters</th>
+        <th class="small">Voc (stc)</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <td class="smallc"><%= st.array_parameters_voc %></td>
+        <% end %>
+      </tr>
+        <tr>
+          <th class="small">Isc (stc)</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <td class="smallc"><%= st.array_parameters_isc %></td>
+          <% end %>
+        </tr>
+      <tr>
+        <th class="small" rowspan="4">String Over-Current Protective Device</th>
+        <th class="small">Type</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <td class="smallc"><%= st.string_type %></td>
+        <% end %>
+      </tr>
+        <tr>
+          <th class="small">Rating (A)</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <td class="smallc"><%= st.string_rating %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <th class="small">D Rating (V)</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <td class="smallc"><%= st.string_d_rating %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <th class="small">Capacity (ka)</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <td class="smallc"><%= st.string_capacity %></td>
+          <% end %>
+        </tr>
+      <tr>
+        <th class="small" rowspan="3">Wiring</th>
+        <th class="small">Type</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <td class="smallc"><%= st.wiring_type %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">Insulation</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <td class="smallc"><%= st.wiring_insulation %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">Size</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <td class="smallc"><%= st.wiring_size %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small" rowspan="3">String Test</th>
+        <th class="small">Voc (V)</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <td class="smallc"><%= st.string_test_voc %></td>
+        <% end %>
+      </tr>
+        <tr>
+          <th class="small">Isc (A)</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <td class="smallc"><%= st.string_test_isc %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <th class="small">Irradiance</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <td class="smallc"><%= st.string_test_irradiance %></td>
+          <% end %>
+        </tr>
+      <tr>
+        <th class="small" rowspan="3">Array Insulation Resistance</th>
+        <th class="small">Test Voltage</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <td class="smallc"><%= st.array_insulation_resistance_test_voltage %></td>
+        <% end %>
+      </tr>
+      <tr>
+          <th class="small">POS</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <td class="smallc"><%= st.array_insulation_resistance_pos %></td>
+          <% end %>
+      </tr>
+      <tr>
+        <th class="small">NEG</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <td class="smallc"><%= st.array_insulation_resistance_neg %></td>
+          <% end %>
+      </tr>
+      <tr>
+        <th class="small">Array FLIR</th><th class="small">Picture</th>
+      </tr>
+    </table>
+</span>
+</div>
+<% end %>
+
+
+
+<div class="row">
+  <span class="span2">
+    <%= link_to "Add String Test", new_string_test_path(@pv_array_test), class: "btn btn-small btn-primary" %>
+  </span>
+</div>
+
+<div class="row">
+  <span class="span1">
+  </span>
+</div>
 
 <!--  link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s -->
