@@ -62,7 +62,7 @@
         <%= link_to "Projects", projects_path %>
         <% if @project %> > <%= "#{@project.name}" %> <% end %>
         <% if @pv_commission && @pv_commission.reference_number %> > <%= link_to "#{@pv_commission.project.name}", @pv_commission.project %> > PV Commission: <%= @pv_commission.reference_number %><% end %>
-        <% if @pv_array_test && @pv_array_test.pv_commission %> > <%= link_to "#{@pv_array_test.pv_commission.project.name}", @pv_array_test.pv_commission.project %> > PV Commission: <%= link_to "#{@pv_array_test.pv_commission.reference_number}", @pv_array_test.pv_commission %> > PV Array Test<% end %>
+        <% if @pv_array_test && @pv_array_test.pv_commission %> > <%= link_to "#{@pv_array_test.pv_commission.project.name}", @pv_array_test.pv_commission.project %> > PV Commission: <%= link_to "#{@pv_array_test.pv_commission.reference_number}", @pv_array_test.pv_commission %> > PV Array Test #<%= @pv_array_test.test_number %> <% end %>
       </small>
     </div>
   </div>
