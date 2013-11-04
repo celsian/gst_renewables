@@ -1,0 +1,105 @@
+<div class="row">
+    <span class="span3">
+    <table class="table table-striped" border="1">
+      <tr>
+        <th class="smallck" colspan="2">String ID:</th>
+          <td class="smallck"><%= @string_test.name %></td>
+      </tr>
+      <tr>
+        <th class="small" rowspan="2" width=75px>Array</th>
+        <th class="small" width=80px>Module</th>
+          <td class="smallc"><%= @string_test.array_module %></td>
+      </tr>
+        <tr>
+          <th class="small">Quantity</th>
+
+            <td class="smallc"><%= @string_test.array_quantity %></td>
+
+        </tr>
+      <tr>
+        <th class="small" rowspan="2">Array Parameters</th>
+        <th class="small">Voc (stc)</th>
+          <td class="smallc"><%= @string_test.array_parameters_voc %></td>
+      </tr>
+        <tr>
+          <th class="small">Isc (stc)</th>
+
+            <td class="smallc"><%= @string_test.array_parameters_isc %></td>
+
+        </tr>
+      <tr>
+        <th class="small" rowspan="4">String Over-Current Protective Device</th>
+        <th class="small">Type</th>
+          <td class="smallc"><%= @string_test.string_type %></td>
+      </tr>
+        <tr>
+          <th class="small">Rating (A)</th>
+
+            <td class="smallc"><%= @string_test.string_rating %></td>
+
+        </tr>
+        <tr>
+          <th class="small">D Rating (V)</th>
+
+            <td class="smallc"><%= @string_test.string_d_rating %></td>
+
+        </tr>
+        <tr>
+          <th class="small">Capacity (ka)</th>
+
+            <td class="smallc"><%= @string_test.string_capacity %></td>
+
+        </tr>
+      <tr>
+        <th class="small" rowspan="3">Wiring</th>
+        <th class="small">Type</th>
+          <td class="smallc"><%= @string_test.wiring_type %></td>
+      </tr>
+      <tr>
+        <th class="small">Insulation</th>
+          <td class="smallc"><%= @string_test.wiring_insulation %></td>
+      </tr>
+      <tr>
+        <th class="small">Size</th>
+          <td class="smallc"><%= @string_test.wiring_size %></td>
+      </tr>
+      <tr>
+        <th class="small" rowspan="3">String Test</th>
+        <th class="small">Voc (V)</th>
+          <td class="smallc"><%= @string_test.string_test_voc %></td>
+      </tr>
+        <tr>
+          <th class="small">Isc (A)</th>
+
+            <td class="smallc"><%= @string_test.string_test_isc %></td>
+
+        </tr>
+        <tr>
+          <th class="small">Irradiance</th>
+
+            <td class="smallc"><%= @string_test.string_test_irradiance %></td>
+
+        </tr>
+      <tr>
+        <th class="small" rowspan="3">Array Insulation Resistance</th>
+        <th class="small">Test Voltage</th>
+          <td class="smallc"><%= @string_test.array_insulation_resistance_test_voltage %></td>
+      </tr>
+      <tr>
+          <th class="small">POS</th>
+
+            <td class="smallc"><%= @string_test.array_insulation_resistance_pos %></td>
+
+      </tr>
+      <tr>
+        <th class="small">NEG</th>
+
+            <td class="smallc"><%= @string_test.array_insulation_resistance_neg %></td>
+
+      </tr>
+      <tr>
+        <th class="small">Array FLIR</th><th class="small">Picture</th>
+      </tr>
+    </table>
+</span>
+</div>
