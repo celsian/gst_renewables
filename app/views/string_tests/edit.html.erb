@@ -1,14 +1,16 @@
+
 <div class="row">
     <span class="span3">
+    <%= form_for @string_test do |f| %>
     <table class="table table-striped" border="1">
       <tr>
         <th class="smallck" colspan="2">String ID:</th>
-          <td class="smallck"><%= @string_test.name %></td>
+          <td class="smallck"><%= f.text_field :name, placeholder: "Name", style: 'font-size: 10px; height: 10px; width: 75px;' %></td>
       </tr>
       <tr>
         <th class="small" rowspan="2" width=75px>Array</th>
         <th class="small" width=80px>Module</th>
-          <td class="smallc"><%= @string_test.array_module %></td>
+          <td class="smallc"><%= f.text_field :array_module, placeholder: "Array Module", style: 'font-size: 10px; height: 10px; width: 75px;' %></td>
       </tr>
         <tr>
           <th class="small">Quantity</th>
@@ -101,5 +103,7 @@
         <th class="small">Array FLIR</th><th class="small">Picture</th>
       </tr>
     </table>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
 </span>
 </div>
