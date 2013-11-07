@@ -5,12 +5,12 @@
     <table class="table table-striped" border="1">
       <tr>
         <th class="smallck" colspan="2">String ID:</th>
-          <td class="smallck"><%= f.text_field :name, placeholder: "Name", style: 'font-size: 10px; height: 10px; width: 75px;' %></td>
+          <td class="smallck"><%= f.text_field :name, placeholder: "Name", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
       </tr>
       <tr>
         <th class="small" rowspan="2" width=75px>Array</th>
         <th class="small" width=80px>Module</th>
-          <td class="smallc"><%= f.text_field :array_module, placeholder: "Array Module", style: 'font-size: 10px; height: 10px; width: 75px;' %></td>
+          <td class="smallc"><%= f.text_field :array_module, placeholder: "Array Module", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
       </tr>
         <tr>
           <th class="small">Quantity</th>
@@ -66,7 +66,7 @@
           <td class="smallc"><%= @string_test.wiring_size %></td>
       </tr>
       <tr>
-        <th class="small" rowspan="3">String Test</th>
+        <th class="small" rowspan="4">String Test</th>
         <th class="small">Voc (V)</th>
           <td class="smallc"><%= @string_test.string_test_voc %></td>
       </tr>
@@ -80,6 +80,12 @@
           <th class="small">Irradiance</th>
 
             <td class="smallc"><%= @string_test.string_test_irradiance %></td>
+
+        </tr>
+        <tr>
+          <th class="small">Voltage</th>
+
+            <td class="smallc"><%= @string_test.string_test_voltage %></td>
 
         </tr>
       <tr>

@@ -130,7 +130,7 @@
         <% end %>
       </tr>
       <tr>
-        <th class="small" rowspan="3">String Test</th>
+        <th class="small" rowspan="4">String Test</th>
         <th class="small">Voc (V)</th>
         <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
           <td class="smallc"><%= st.string_test_voc %></td>
@@ -148,6 +148,12 @@
             <td class="smallc"><%= st.string_test_irradiance %></td>
           <% end %>
         </tr>
+        <tr>
+          <th class="small">Voltage</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <td class="smallc"><%= st.string_test_voltage %></td>
+          <% end %>
+        </tr>        
       <tr>
         <th class="small" rowspan="3">Array Insulation Resistance</th>
         <th class="small">Test Voltage</th>
@@ -169,13 +175,14 @@
       </tr>
       <tr>
         <th class="small">Array FLIR</th><th class="small">Picture</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <td class="smallc"><%= st.array_module_flir_pic %></td>
+        <% end %>
       </tr>
     </table>
 </span>
 </div>
 <% end %>
-
-
 
 <div class="row">
   <span class="span2">
