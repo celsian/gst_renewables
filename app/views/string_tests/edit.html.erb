@@ -10,106 +10,121 @@
       <tr>
         <th class="small" rowspan="2" width=75px>Array</th>
         <th class="small" width=80px>Module</th>
-          <td class="smallc"><%= f.text_field :array_module, placeholder: "Array Module", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+          <td class="smallc"><%= f.text_field :array_module, placeholder: "Module", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
       </tr>
         <tr>
           <th class="small">Quantity</th>
 
-            <td class="smallc"><%= @string_test.array_quantity %></td>
+            <td class="smallc"><%= f.text_field :array_quantity, placeholder: "Quantity", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
 
         </tr>
       <tr>
         <th class="small" rowspan="2">Array Parameters</th>
         <th class="small">Voc (stc)</th>
-          <td class="smallc"><%= @string_test.array_parameters_voc %></td>
+          <td class="smallc"><%= f.text_field :array_parameters_voc, placeholder: "VOC", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
       </tr>
         <tr>
           <th class="small">Isc (stc)</th>
 
-            <td class="smallc"><%= @string_test.array_parameters_isc %></td>
+            <td class="smallc"><%= f.text_field :array_parameters_isc, placeholder: "Isc", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
 
         </tr>
       <tr>
         <th class="small" rowspan="4">String Over-Current Protective Device</th>
         <th class="small">Type</th>
-          <td class="smallc"><%= @string_test.string_type %></td>
+          <td class="smallc"><%= f.text_field :string_type, placeholder: "Type", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
       </tr>
         <tr>
           <th class="small">Rating (A)</th>
 
-            <td class="smallc"><%= @string_test.string_rating %></td>
+            <td class="smallc"><%= f.text_field :string_rating, placeholder: "Rating", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
 
         </tr>
         <tr>
           <th class="small">D Rating (V)</th>
 
-            <td class="smallc"><%= @string_test.string_d_rating %></td>
+            <td class="smallc"><%= f.text_field :string_d_rating, placeholder: "D Rating", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
 
         </tr>
         <tr>
           <th class="small">Capacity (ka)</th>
 
-            <td class="smallc"><%= @string_test.string_capacity %></td>
+            <td class="smallc"><%= f.text_field :string_capacity, placeholder: "Capacity", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
 
         </tr>
       <tr>
         <th class="small" rowspan="3">Wiring</th>
         <th class="small">Type</th>
-          <td class="smallc"><%= @string_test.wiring_type %></td>
+          <td class="smallc"><%= f.text_field :wiring_type, placeholder: "Type", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
       </tr>
       <tr>
         <th class="small">Insulation</th>
-          <td class="smallc"><%= @string_test.wiring_insulation %></td>
+          <td class="smallc"><%= f.text_field :wiring_insulation, placeholder: "Insulation", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
       </tr>
       <tr>
         <th class="small">Size</th>
-          <td class="smallc"><%= @string_test.wiring_size %></td>
+          <td class="smallc"><%= f.text_field :wiring_size, placeholder: "Size", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
       </tr>
       <tr>
         <th class="small" rowspan="4">String Test</th>
         <th class="small">Voc (V)</th>
-          <td class="smallc"><%= @string_test.string_test_voc %></td>
+          <td class="smallc"><%= f.text_field :string_test_voc, placeholder: "Test Voc", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
       </tr>
         <tr>
           <th class="small">Isc (A)</th>
 
-            <td class="smallc"><%= @string_test.string_test_isc %></td>
+            <td class="smallc"><%= f.text_field :string_test_isc, placeholder: "Test Isc", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
 
         </tr>
         <tr>
           <th class="small">Irradiance</th>
 
-            <td class="smallc"><%= @string_test.string_test_irradiance %></td>
+            <td class="smallc"><%= f.text_field :string_test_irradiance, placeholder: "Test Irradiance", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
 
         </tr>
         <tr>
           <th class="small">Voltage</th>
 
-            <td class="smallc"><%= @string_test.string_test_voltage %></td>
+            <td class="smallc"><%= f.text_field :string_test_voltage, placeholder: "Test Voltage", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
 
         </tr>
       <tr>
         <th class="small" rowspan="3">Array Insulation Resistance</th>
         <th class="small">Test Voltage</th>
-          <td class="smallc"><%= @string_test.array_insulation_resistance_test_voltage %></td>
+          <td class="smallc"><%= f.text_field :array_insulation_resistance_test_voltage, placeholder: "Test Voltage", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
       </tr>
       <tr>
           <th class="small">POS</th>
 
-            <td class="smallc"><%= @string_test.array_insulation_resistance_pos %></td>
+            <td class="smallc"><%= f.text_field :array_insulation_resistance_pos, placeholder: "POS", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
 
       </tr>
       <tr>
         <th class="small">NEG</th>
 
-            <td class="smallc"><%= @string_test.array_insulation_resistance_neg %></td>
+            <td class="smallc"><%= f.text_field :array_insulation_resistance_neg, placeholder: "NEG", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
 
       </tr>
       <tr>
         <th class="small">Array FLIR</th><th class="small">Picture</th>
+          <td class="smallc"></td>
       </tr>
     </table>
+
+<input id="array_module_flir_pic" type="file" style="display:none" name="string_test[array_module_flir_pic]">
+<div class="input-append">
+<a class="btn btn-small btn-primary" onclick="$('input[id=array_module_flir_pic]').click();">Select</a>
+</div>
+ 
+<script type="text/javascript">
+$('input[id=array_module_flir_pic]').change(function() { $('#photoCover').val($(this).val()); });
+</script>
+
+
+
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
 </span>
 </div>
+
+<!-- %= f.file_field :combiner_exterior_pic, class: "btn btn-file" %> -->
