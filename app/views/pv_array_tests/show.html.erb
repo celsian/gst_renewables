@@ -176,7 +176,7 @@
       <tr>
         <th class="small">Array FLIR</th><th class="small">Picture</th>
         <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
-          <td class="smallc"><%= st.array_module_flir_pic %></td>
+          <td class="smallc"><%= link_to image_tag(st.array_module_flir_pic_url(:thumb_small).to_s), st.array_module_flir_pic_url.to_s %></td>
         <% end %>
       </tr>
     </table>
