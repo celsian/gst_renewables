@@ -1,0 +1,140 @@
+<div class="row">
+  <span class="span9">
+    <h3>Edit All Strings:</h3>
+  </span>
+</div>
+<div class="row">
+    <span class="span3">
+    <%= form_for @string_test, url: update_all_string_tests_path(@pv_array_test), method: :put do |f| %>
+    <table class="table table-striped" border="1">
+      <tr>
+        <th class="smallck" colspan="2">String ID:</th>
+          <td class="smallck"><input type="text" name="DO_NOT_USE" value="String Name" readonly style="font-size: 10px; height: 10px; width: 60px;"></td>
+      </tr>
+      <tr>
+        <th class="small" rowspan="2" width=75px>Array</th>
+        <th class="small" width=80px>Module</th>
+          <td class="smallc"><%= f.text_field :array_module, placeholder: "Module", style: 'font-size: 10px; height: 10px; width: 60px;', autofocus: true %></td>
+      </tr>
+        <tr>
+          <th class="small">Quantity</th>
+
+            <td class="smallc"><%= f.text_field :array_quantity, placeholder: "Quantity", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+
+        </tr>
+      <tr>
+        <th class="small" rowspan="2">Array Parameters</th>
+        <th class="small">Voc (stc)</th>
+          <td class="smallc"><%= f.text_field :array_parameters_voc, placeholder: "VOC", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+      </tr>
+        <tr>
+          <th class="small">Isc (stc)</th>
+
+            <td class="smallc"><%= f.text_field :array_parameters_isc, placeholder: "Isc", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+
+        </tr>
+      <tr>
+        <th class="small" rowspan="4">String Over-Current Protective Device</th>
+        <th class="small">Type</th>
+          <td class="smallc"><%= f.text_field :string_type, placeholder: "Type", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+      </tr>
+        <tr>
+          <th class="small">Rating (A)</th>
+
+            <td class="smallc"><%= f.text_field :string_rating, placeholder: "Rating", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+
+        </tr>
+        <tr>
+          <th class="small">D Rating (V)</th>
+
+            <td class="smallc"><%= f.text_field :string_d_rating, placeholder: "D Rating", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+
+        </tr>
+        <tr>
+          <th class="small">Capacity (ka)</th>
+
+            <td class="smallc"><%= f.text_field :string_capacity, placeholder: "Capacity", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+
+        </tr>
+      <tr>
+        <th class="small" rowspan="3">Wiring</th>
+        <th class="small">Type</th>
+          <td class="smallc"><%= f.text_field :wiring_type, placeholder: "Type", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+      </tr>
+      <tr>
+        <th class="small">Insulation</th>
+          <td class="smallc"><%= f.text_field :wiring_insulation, placeholder: "Insulation", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+      </tr>
+      <tr>
+        <th class="small">Size</th>
+          <td class="smallc"><%= f.text_field :wiring_size, placeholder: "Size", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+      </tr>
+      <tr>
+        <th class="small" rowspan="4">String Test</th>
+        <th class="small">Voc (V)</th>
+          <td class="smallc"><input type="text" name="DO_NOT_USE" value="Set by Import" readonly style="font-size: 10px; height: 10px; width: 60px;"></td>
+      </tr>
+        <tr>
+          <th class="small">Isc (A)</th>
+
+            <td class="smallc"><input type="text" name="DO_NOT_USE" value="Set by Import" readonly style="font-size: 10px; height: 10px; width: 60px;"></td>
+
+        </tr>
+        <tr>
+          <th class="small">Irradiance</th>
+
+            <td class="smallc"><input type="text" name="DO_NOT_USE" value="Set by Import" readonly style="font-size: 10px; height: 10px; width: 60px;"></td>
+
+        </tr>
+        <tr>
+          <th class="small">DC Voltage</th>
+
+            <td class="smallc"><input type="text" name="DO_NOT_USE" value="Set by Import" readonly style="font-size: 10px; height: 10px; width: 60px;"></td>
+
+        </tr>
+      <tr>
+        <th class="small" rowspan="3">Array Insulation Resistance</th>
+        <th class="small">Test Voltage</th>
+          <td class="smallc"><%= f.text_field :array_insulation_resistance_test_voltage, placeholder: "Test Voltage", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+      </tr>
+      <tr>
+          <th class="small">POS</th>
+
+            <td class="smallc"><%= f.text_field :array_insulation_resistance_pos, placeholder: "POS", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+
+      </tr>
+      <tr>
+        <th class="small">NEG</th>
+
+            <td class="smallc"><%= f.text_field :array_insulation_resistance_neg, placeholder: "NEG", style: 'font-size: 10px; height: 10px; width: 60px;' %></td>
+
+      </tr>
+      <tr>
+        <th class="small">Array FLIR</th><th class="small">Picture</th>
+          <td class="smallc">Set Individually</td>
+      </tr>
+    </table>
+
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</span>
+
+<span class="span6">
+  <H3>About:</H3>
+  <P>This form allows the user to update all Strings for a single PV Array Test at once.</P>
+  <P><B>Static fields</b> are unique to each string, but can be edited individually from the <B><%= link_to "Edit Individually", edit_all_string_tests_individually_path(@pv_array_test) %></b> form.</P>
+  <P><b>The static fields are as follows:</b>
+    <UL>
+      <LI>String Name</LI>
+      <LI>String Test VOC</LI>
+      <LI>String Test ISC</LI>
+      <LI>String Test Irradiance</LI>
+      <LI>String Test DC Voltage</LI>
+      <LI>Array FLIR Picture</LI>
+    </UL>
+  </P>
+</span>
+
+</div>
+
+<!-- %= f.file_field :combiner_exterior_pic, class: "btn btn-file" %> -->
