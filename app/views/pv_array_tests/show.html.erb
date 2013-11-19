@@ -45,6 +45,15 @@
   </tr>
 </table>
 
+
+<div class="row">
+  <span class="span9" align="left">
+    <%= link_to "Edit All Strings", edit_all_string_tests_path(@pv_array_test), class: "btn btn-small btn-primary" %>
+    <%= link_to "Edit Strings Individually", edit_all_string_tests_individually_path(@pv_array_test), class: "btn btn-small btn-primary" %>
+  </span>
+</div>
+
+
 <% 0.upto(@tables) do |x| %>
 <div class="row">
   <% if x == @tables && @string_tests.length % 10 != 0 %>
