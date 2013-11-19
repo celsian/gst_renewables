@@ -16,10 +16,12 @@
       <%= f.label :mfg %><%= f.text_field :mfg, placeholder: "MFG" %>
     </div>
     <div class="span3">
-      <p><b>Import Sting Tests (.CSV Only):</b></p> 
-        <%= f.fields_for :string_tests do |builder| %>
-          <%= builder.file_field :pv_array_test, class: "btn btn-file" %>
-        <% end %>
+      <% if !@pv_array_test.id %>
+        <p><b>Import Sting Tests (.CSV Only):</b></p> 
+          <%= f.fields_for :string_tests do |builder| %>
+            <%= builder.file_field :pv_array_test, class: "btn btn-file" %>
+          <% end %>
+      <% end %>
     </div>
   </div>
   <br>
