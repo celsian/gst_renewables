@@ -4,7 +4,12 @@ GstRenewables::Application.routes.draw do
   resources :projects
   resources :pv_commissions
   resources :pv_array_tests
+  
   resources :string_tests
+  get "/pv_array_tests/:id/edit_all_string_tests", to: "string_tests#edit_all", as: "edit_all_string_tests"
+  put "/pv_array_tests/:id/update_all_string_tests", to: "string_tests#update_all", as: "update_all_string_tests"
+  get "/pv_array_tests/:id/edit_all_individually_string_tests", to: "string_tests#edit_all_individually", as: "edit_all_string_tests_individually"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
