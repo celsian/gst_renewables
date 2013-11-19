@@ -107,20 +107,16 @@
       </tr>
       <tr>
         <th class="small">Array FLIR</th><th class="small">Picture</th>
-          <td class="smallc"></td>
+          <td class="smallc"><%= link_to_function "Select", onclick="$('input[id=string_test_array_module_flir_pic]').click();" ,class: 'btn btn-mini btn-primary' %>
+            <%= f.file_field :array_module_flir_pic, style: 'visibility: hidden; height: 11px; width: 1px;' %></td>
       </tr>
     </table>
 
-<input id="array_module_flir_pic" type="file" style="display:none" name="string_test[array_module_flir_pic]">
-<div class="input-append">
-<a class="btn btn-small btn-primary" onclick="$('input[id=array_module_flir_pic]').click();">Select</a>
-</div>
- 
-<script type="text/javascript">
-$('input[id=array_module_flir_pic]').change(function() { $('#photoCover').val($(this).val()); });
-</script>
-
-
+    <!-- start scripting for File Select -->
+    <script type="text/javascript">
+      $('input[id=string_test_array_module_flir_pic]').change(function() { $('#photoCover').val($(this).val()); });
+    </script>  
+    <!-- end -->
 
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
