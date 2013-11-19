@@ -26,10 +26,25 @@ class StringTestsController < ApplicationController
     end
   end
 
-  def edit_individual
+  def edit_all
+    @pv_array_test = PvArrayTest.find(params[:id])
+    @string_test = @pv_array_test.string_tests.first
   end
 
-  def update_individual
+  def update_all
+    pv_array_test = PvArrayTest.find(params[:id])
+    string_tests = pv_array_test.string_tests
+    string_tests.each do |string_test|
+      string_test.update_attributes!(string_test_params.reject { |k,v| v.blank? })
+    end
+      redirect_to pv_array_test, flash: {success: "String Tests were updated."}
+  end
+
+  def edit_all_individually
+    @string_tests = PvArrayTest.find(params[:id]).string_tests
+  end
+
+  def update_all_individually
   end
 
   private
