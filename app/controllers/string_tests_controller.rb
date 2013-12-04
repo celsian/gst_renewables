@@ -42,6 +42,7 @@ class StringTestsController < ApplicationController
 
   def edit_all_individually
     @string_tests = PvArrayTest.find(params[:id]).string_tests
+    
   end
 
   def update_all_individually
