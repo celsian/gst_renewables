@@ -58,8 +58,10 @@
 <div class="row">
   <% if x == @tables && @string_tests.length % 10 != 0 %>
     <span class="span<%= (((@string_tests.length-x*10)/9.0)*7.0).ceil+2 %>">
+      <B><H4><%= "Strings: #{x*10+1} - #{@string_tests.length}" %></B></H4>
   <% else %>
     <span class="span9">
+      <B><H4><%= "Strings: #{x*10+1} - #{x*10+10}" %></B></H4>
   <% end %>
     <table class="table table-striped" border="1">
       <tr>
