@@ -3,8 +3,16 @@
     <H3>Edit Strings Individually:</H3>
   </span>
 </div>
+
 <div class="row">
-  <% @string_tests.each do |string| %>
-    <%= string.name %> 
-  <% end %>
+  <span class="span9">
+    <%= form_tag update_all_string_tests_individually_path, :method => :put do %>
+
+      <% @string_tests.each do |string| %>
+        <%= string.name %> 
+      <% end %>
+      <br>
+      <%= submit_tag "Submit Changes", class: "btn btn-primary" %>
+    <% end %>
+  </span>
 </div>
