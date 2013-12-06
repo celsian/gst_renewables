@@ -4,15 +4,195 @@
   </span>
 </div>
 
-<div class="row">
-  <span class="span9">
-    <%= form_tag update_all_string_tests_individually_path, :method => :put do %>
+<%= form_tag update_all_string_tests_individually_path, :method => :put do %>
 
-      <% @string_tests.each do |string| %>
-        <%= string.name %> 
-      <% end %>
-      <br>
-      <%= submit_tag "Submit Changes", class: "btn btn-primary" %>
+  <% 0.upto(@tables) do |x| %>
+  <div class="row">
+    <% if x == @tables && @string_tests.length % 10 != 0 %>
+      <span class="span<%= (((@string_tests.length-x*10)/9.0)*7.0).ceil+2 %>">
+        <B><H4><%= "Strings: #{x*10+1} - #{@string_tests.length}" %></B></H4>
+    <% else %>
+      <span class="span9">
+        <B><H4><%= "Strings: #{x*10+1} - #{x*10+10}" %></B></H4>
     <% end %>
-  </span>
-</div>
+
+    <table class="table table-striped" border=1>
+      <tr>
+        <th class="smallck" colspan="2">String ID:</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %> 
+          <%= fields_for "string_tests[]", st do |f| %>
+          <td class="smallck"><%= f.text_field :name, placeholder: "Name", style: 'font-size: 10px; height: 10px; width: 40px;', autofocus: true %></td>
+          <% end %>
+        <% end %>
+        </tr>
+        <tr>
+          <th class="small" rowspan="2" width=75px>Array</th>
+          <th class="small" width=80px>Module</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %> 
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :array_module, placeholder: "Module", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">Quantity</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :array_quantity, placeholder: "Quantity", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small" rowspan="2">Array Parameters</th>
+        <th class="small">Voc (stc)</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :array_parameters_voc, placeholder: "VOC", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">Isc (stc)</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <%= fields_for "string_tests[]", st do |f| %>
+              <td class="smallc"><%= f.text_field :array_parameters_isc, placeholder: "ISC", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+            <% end %>
+          <% end %>
+      </tr>
+      <tr>
+        <th class="small" rowspan="4">String Over-Current Protective Device</th>
+        <th class="small">Type</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+              <td class="smallc"><%= f.text_field :string_type, placeholder: "Type", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+            <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">Rating (A)</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :string_rating, placeholder: "Rating", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">D Rating (V)</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :string_d_rating, placeholder: "D Rating", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">Capacity (ka)</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :string_capacity, placeholder: "Capacity", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small" rowspan="3">Wiring</th>
+        <th class="small">Type</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :wiring_type, placeholder: "Type", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">Insulation</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :wiring_insulation, placeholder: "Insulation", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">Size</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :wiring_size, placeholder: "Size", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small" rowspan="4">String Test</th>
+        <th class="small">Voc (V)</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :string_test_voc, placeholder: "VOC", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">Isc (A)</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :string_test_isc, placeholder: "ISC", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">Irradiance</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :string_test_irradiance, placeholder: "Irradiance", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">Voltage</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :string_test_voltage, placeholder: "Voltage", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small" rowspan="3">Array Insulation Resistance</th>
+        <th class="small">Test Voltage</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :array_insulation_resistance_test_voltage, placeholder: "Array Voltage", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">POS</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %>
+            <td class="smallc"><%= f.text_field :array_insulation_resistance_pos, placeholder: "POS", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+          <% end %>
+        <% end %>
+      </tr>
+      <tr>
+        <th class="small">NEG</th>
+          <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+            <%= fields_for "string_tests[]", st do |f| %>
+              <td class="smallc"><%= f.text_field :array_insulation_resistance_neg, placeholder: "NEG", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+            <% end %>
+          <% end %>
+      </tr>
+      <tr>
+        <th class="small">Array FLIR</th><th class="small">Picture</th>
+        <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
+          <%= fields_for "string_tests[]", st do |f| %><!-- THIS NEEDS TO BE FIXED FOR IMAGES -->
+              <td class="smallc"><%= link_to_function "Select", onclick="$('input[id=string_test_array_module_flir_pic]').click();" ,class: 'btn btn-mini btn-primary' %>
+            <%= f.file_field :array_module_flir_pic, style: 'visibility: hidden; height: 11px; width: 1px;' %></td>
+            <% end %>
+                <!-- start scripting for File Select -->
+                <script type="text/javascript">
+                  $('input[id=string_test_array_module_flir_pic]').change(function() { $('#photoCover').val($(this).val()); });
+                </script>  
+                <!-- end -->
+        <% end %>
+      </tr>
+    </table>
+
+    </span>
+  </div>
+  <% end %>
+  <%= submit_tag "Submit Changes", class: "btn btn-primary" %>
+<% end %>
