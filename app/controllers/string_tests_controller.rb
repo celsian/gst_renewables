@@ -42,10 +42,17 @@ class StringTestsController < ApplicationController
 
   def edit_all_individually
     @string_tests = PvArrayTest.find(params[:id]).string_tests
-    
+    @tables = ((@string_tests.length/10.0).ceil)-1
   end
 
   def update_all_individually
+    @string_tests = StringTest.update(params[:string_tests].keys, params[:string_tests].values).reject { |p| p.errors.empty? }
+    if @string_tests.empty?
+      flash[:notice] = "String Tests updated."
+      redirect_to root_path
+    else
+      render :action => "edit_all_individually"
+    end
   end
 
   private
