@@ -49,7 +49,7 @@ class StringTestsController < ApplicationController
     @string_tests = StringTest.update(params[:string_tests].keys, params[:string_tests].values).reject { |p| p.errors.empty? }
     if @string_tests.empty?
       flash[:notice] = "String Tests updated."
-      redirect_to root_path
+      redirect_to StringTest.find(params[:string_tests].first.first).pv_array_test
     else
       render :action => "edit_all_individually"
     end
