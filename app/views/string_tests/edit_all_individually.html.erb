@@ -179,14 +179,19 @@
         <th class="small">Array FLIR</th><th class="small">Picture</th>
         <% @string_tests[(x*10)..(x*10+9)].each do |st| %>
           <%= fields_for "string_tests[]", st do |f| %><!-- THIS NEEDS TO BE FIXED FOR IMAGES -->
-              <td class="smallc"><%= link_to_function "Select", onclick="$('input[id=string_test_array_module_flir_pic]').click();" ,class: 'btn btn-mini btn-primary' %>
-            <%= f.file_field :array_module_flir_pic, style: 'visibility: hidden; height: 11px; width: 1px;' %></td>
-            <% end %>
+              <td class="smallc">
+                <% if st.array_module_flir_pic.current_path %>
+                  <%= link_to_function image_tag(st.array_module_flir_pic_url(:thumb_small).to_s), onclick="$('input[id=string_tests_21_array_module_flir_pic]').click();" %>
+                <% else %>
+                  <%= link_to_function "Select", onclick="$('input[id=string_tests_21_array_module_flir_pic]').click();" ,class: 'btn btn-mini btn-primary' %>
+                <% end %>
+                <%= f.file_field :array_module_flir_pic, style: 'visibility: hidden; height: 11px; width: 1px;' %></td>
                 <!-- start scripting for File Select -->
                 <script type="text/javascript">
-                  $('input[id=string_test_array_module_flir_pic]').change(function() { $('#photoCover').val($(this).val()); });
+                  $('input[id=string_tests_21_array_module_flir_pic]').change(function() { $('#photoCover').val($(this).val()); });
                 </script>  
                 <!-- end -->
+            <% end %>
         <% end %>
       </tr>
     </table>
