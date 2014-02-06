@@ -18,7 +18,7 @@ class StringTestsController < ApplicationController
   def update
     string_test = StringTest.find(params[:id])
     string_test.update string_test_params
-
+    binding.pry
     if string_test.save
       redirect_to string_test.pv_array_test, flash: {success: "String Test #{string_test.name} was updated."}
     else
@@ -46,6 +46,7 @@ class StringTestsController < ApplicationController
   end
 
   def update_all_individually
+    binding.pry
     @string_tests = StringTest.update(params[:string_tests].keys, params[:string_tests].values).reject { |p| p.errors.empty? }
     if @string_tests.empty?
       flash[:notice] = "String Tests updated."
