@@ -3,7 +3,7 @@ class StringTest < ActiveRecord::Base
 
 #Header Stuff
   belongs_to :pv_array_test
-  after_initialize :init
+  after_create :init
 
   default_scope order("id") #DO NOT CHANGE THIS, ordering matters for self.import function
 
