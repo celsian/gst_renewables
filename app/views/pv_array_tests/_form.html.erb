@@ -34,5 +34,19 @@
     </div>
   </div>
   <br>
+
+<!-- String test stuff -->
+<div class="row">
+  <span class="span9">
+    <H3>Edit Strings Individually:</H3>
+  </span>
+</div>
+
+<%= f.fields_for :string_tests do |builder| %>
+  <%= render "string_tests", :f => builder %>
+<% end %>
+
+<!-- end String test stuff -->
+
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
