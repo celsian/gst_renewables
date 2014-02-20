@@ -34,6 +34,9 @@ class PvArrayTestsController < ApplicationController
 
   def edit
     @pv_array_test = PvArrayTest.find(params[:id])
+
+    @string_tests = @pv_array_test.string_tests
+    @tables = ((@string_tests.length/10.0).ceil)-1
   end
 
   def update
@@ -59,7 +62,12 @@ class PvArrayTestsController < ApplicationController
   private
 
   def pv_array_test_params
-    params.require(:pv_array_test).permit(:pv_commission_id, :initial_verification, :inspector, :test_instruments, :combiner, :mfg, :combiner_exterior_pic, :combiner_interior_pic, :combiner_flir_pic)
+    params.require(:pv_array_test).permit(:pv_commission_id, :initial_verification, :inspector,
+      :test_instruments, :combiner, :mfg, :combiner_exterior_pic, :combiner_interior_pic, :combiner_flir_pic,
+      string_tests_attributes: [:id, :_destroy, :pv_array_test_id, :name, :array_module, :array_quantity,
+        :array_parameters_voc, :array_parameters_isc, :string_type, :string_rating, :string_d_rating,
+        :string_capacity, :wiring_type, :wiring_insulation, :wiring_size, :string_test_voc, :string_test_isc,
+        :string_test_irradiance, :string_test_voltage, :array_insulation_resistance_test_voltage, :array_insulation_resistance_pos,
+        :array_insulation_resistance_neg, :array_module_flir_pic])
   end
-
 end
