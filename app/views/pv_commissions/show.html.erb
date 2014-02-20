@@ -63,7 +63,11 @@
 <% 0.upto(@rows-1) do |row| %>
   <tr>
     <td class="c">
-      
+      <% if @pv_commission.visual_inspections[row] %>
+        <%= link_to "Visual Inspection: #{(row+1).to_s.rjust(3, '0')}", visual_inspection_path(@pv_commission.visual_inspections[row], number: (row+1).to_s.rjust(3, '0')) %>
+      <% else %>
+
+      <% end %>
     </td>
     <td class="c">
       <% if @pv_commission.pv_array_tests[row] %>
@@ -73,20 +77,24 @@
       <% end %>
     </td>
     <td class="c">
-      
+      <% if @pv_commission.inverter_inspections[row] %>
+        <%= link_to "Inverter Inspection: #{(row+1).to_s.rjust(3, '0')}", inverter_inspection_path(@pv_commission.inverter_inspections[row], number: (row+1).to_s.rjust(3, '0')) %>
+      <% else %>
+
+      <% end %>
     </td>
   </tr>
 <% end %>
 <!-- END the important part -->
   <tr>
     <td class="c">
-        <%= link_to "New Visual Inspection", {}, class: "btn btn-small btn-primary" %>
+        <%= link_to "New Visual Inspection", new_visual_inspection_path(pv_commission_id: @pv_commission.id), class: "btn btn-small btn-primary" %>
     </td>
     <td class="c">
         <%= link_to "New PV Array Test", new_pv_array_test_path(pv_commission_id: @pv_commission.id), class: "btn btn-small btn-primary" %>
     </td>
     <td class="c">
-        <%= link_to "New Inverter Inspection", {}, class: "btn btn-small btn-primary" %>
+        <%= link_to "New Inverter Inspection", new_inverter_inspection_path(pv_commission_id: @pv_commission.id), class: "btn btn-small btn-primary" %>
     </td>
   </tr>
 </table>
