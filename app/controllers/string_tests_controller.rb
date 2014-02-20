@@ -41,7 +41,8 @@ class StringTestsController < ApplicationController
   end
 
   def edit_all_individually
-    @string_tests = PvArrayTest.find(params[:id]).string_tests
+    @pv_array_test = PvArrayTest.find(params[:id])
+    @string_tests = @pv_array_test.string_tests
     @tables = ((@string_tests.length/10.0).ceil)-1
   end
 
