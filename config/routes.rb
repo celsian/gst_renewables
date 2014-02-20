@@ -4,6 +4,8 @@ GstRenewables::Application.routes.draw do
   resources :projects
   resources :pv_commissions
   resources :pv_array_tests
+  resources :visual_inspections
+  resources :inverter_inspections
   
   resources :string_tests
   get "/pv_array_tests/:id/edit_all_string_tests", to: "string_tests#edit_all", as: "edit_all_string_tests"
