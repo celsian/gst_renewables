@@ -1,0 +1,2 @@
+module InverterInspectionsHelper
+end

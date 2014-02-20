@@ -1,0 +1,14 @@
+<%= form_for @inverter_inspection do |f| %>
+          <%= f.fields_for :infoboxes do |builder| %>
+            <%= render "infobox_fields", :f => builder %>
+          <% end %>
+          <P>
+          <%= link_to_add_fields "Add Inspection", f, :infoboxes %>
+          </p>
+          <% if params[:pv_commission_id] %>
+            <%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] %>
+          <% elsif @inverter_inspection.pv_commission_id %>
+            <%= f.hidden_field :pv_commission_id, value: @inverter_inspection.pv_commission_id %>
+          <% end %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

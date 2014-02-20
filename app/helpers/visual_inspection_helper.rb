@@ -1,0 +1,2 @@
+module VisualInspectionHelper
+end
