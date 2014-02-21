@@ -15,7 +15,7 @@ class PvArrayTestsController < ApplicationController
   end
 
   def create
-    pv_array_test = PvArrayTest.new(pv_array_test_params)
+    pv_array_test = PvArrayTest.new(pv_array_test_create_params)
 
     if pv_array_test.pv_commission.pv_array_tests == []
       pv_array_test.test_number = "001"
@@ -37,6 +37,10 @@ class PvArrayTestsController < ApplicationController
 
     @string_tests = @pv_array_test.string_tests
     @tables = ((@string_tests.length/10.0).ceil)-1
+
+    @row = 0
+    @line = 0
+    @string_count = @pv_array_test.string_tests.count
   end
 
   def update
@@ -60,6 +64,10 @@ class PvArrayTestsController < ApplicationController
   end
 
   private
+  def pv_array_test_create_params
+    params.require(:pv_array_test).permit(:pv_commission_id, :initial_verification, :inspector,
+      :test_instruments, :combiner, :mfg, :combiner_exterior_pic, :combiner_interior_pic, :combiner_flir_pic)
+    end
 
   def pv_array_test_params
     params.require(:pv_array_test).permit(:pv_commission_id, :initial_verification, :inspector,
