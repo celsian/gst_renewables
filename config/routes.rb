@@ -6,8 +6,19 @@ GstRenewables::Application.routes.draw do
   resources :pv_array_tests
   resources :visual_inspections
   resources :inverter_inspections
-  
   resources :string_tests
+
+  # resources :projects do
+  #   resources :pv_commissions do
+  #     resources :pv_array_tests do
+  #       resources :string_tests
+  #     end
+  #     resources :visual_inspections
+  #     resources :inverter_inspections
+  #   end
+  # end
+  
+  
   get "/pv_array_tests/:id/edit_all_string_tests", to: "string_tests#edit_all", as: "edit_all_string_tests"
   put "/pv_array_tests/:id/update_all_string_tests", to: "string_tests#update_all", as: "update_all_string_tests"
   get "/pv_array_tests/:id/edit_all_individually_string_tests", to: "string_tests#edit_all_individually", as: "edit_all_string_tests_individually"
