@@ -40,6 +40,6 @@ en:
       pv_array_test:
         test_instruments: "Test Instruments"
         mfg: "MFG"
-        combiner_exterior_pic: "Combiner Exterior Picture"
-        combiner_interior_pic: "Combiner Interior Picture"
-        combiner_flir_pic: "Combiner FLIR Picture"
+        combiner_exterior_pic: "Combiner Exterior Image"
+        combiner_interior_pic: "Combiner Interior Image"
+        combiner_flir_pic: "Combiner FLIR Image"
