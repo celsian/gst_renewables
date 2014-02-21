@@ -1,0 +1,6 @@
+<%= f.fields_for :string_tests do |builder| %>
+  <% if builder.options[:child_index] >= ((@string_count*@line)+(@row*10)) && builder.options[:child_index] < ((10 + (@string_count*@line))+(@row*10)) %>
+    <td class="smallc"><%= builder.text_field value, placeholder: "#{value_text}", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+  <% end %>
+<% end %>
+<% @line += 1 %>
