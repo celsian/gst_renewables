@@ -3,7 +3,7 @@ class StringTest < ActiveRecord::Base
 
 #Header Stuff
   belongs_to :pv_array_test
-  after_create :init
+  after_initialize :init
 
   default_scope order("id") #DO NOT CHANGE THIS, ordering matters for self.import function
 
@@ -28,7 +28,6 @@ class StringTest < ActiveRecord::Base
   end
 
   def self.import(file, pv_array_test)
-    
     csv = CSV.open(file.path)
     csv.shift
     csv.shift
@@ -49,6 +48,9 @@ class StringTest < ActiveRecord::Base
           st.name = index+1
           st.attributes = row.to_hash.slice(:string_test_voc, :string_test_isc, :string_test_irradiance)
           st.pv_array_test = pv_array_test
+
+
+
           st.save
           backmarker = index
 
