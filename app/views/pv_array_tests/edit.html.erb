@@ -1,2 +1,6 @@
 <h2>Edit PV Array Test:</h2>
-<%= render 'form' %>
+<%= form_for @pv_array_test, multipart: true do |f| %>
+  <%= render "form", :f => f %>
+  <%= render "string_tests", :f => f %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
