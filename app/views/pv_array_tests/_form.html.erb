@@ -1,52 +1,34 @@
-<%= form_for @pv_array_test, multipart: true do |f| %>
-    <div class="btn-group" data-toggle="buttons-radio">
-        <%= f.radio_button :initial_verification, true, :id=>"first", :style=>"display:none;" %>
-        <label for="first" class="btn btn-primary">Initial Verification</label>
+<div class="btn-group" data-toggle="buttons-radio">
+    <%= f.radio_button :initial_verification, true, :id=>"first", :style=>"display:none;" %>
+    <label for="first" class="btn btn-primary">Initial Verification</label>
 
-        <%= f.radio_button :initial_verification, false, :id=>"second", :style=>"display:none;" %>
-        <label for="second" class="btn btn-primary">Periodic Verification</label>
-    </div>
-    <br>
-    <br>
-  <div class="row">
-    <div class="span3">
-      <%= f.label :inspector %><%= f.text_field :inspector, autofocus: true, placeholder: "Inspector" %>
-      <%= f.label :test_instruments %><%= f.text_field :test_instruments, placeholder: "Test Instruments" %>
-      <%= f.label :combiner %><%= f.text_field :combiner, placeholder: "Combiner" %>
-      <%= f.label :mfg %><%= f.text_field :mfg, placeholder: "MFG" %>
-    </div>
-    <div class="span3">
-      <% if !@pv_array_test.id %>
-        <p><b>Import Sting Tests (.CSV Only):</b></p> 
-          <%= f.fields_for :string_tests do |builder| %>
-            <%= builder.file_field :pv_array_test, class: "btn btn-file" %>
-          <% end %>
-      <% end %>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="span9">
-    <%= f.label :combiner_exterior_pic %><%= f.file_field :combiner_exterior_pic, class: "btn btn-file" %><br><br>
-    <%= f.label :combiner_interior_pic %><%= f.file_field :combiner_interior_pic, class: "btn btn-file" %><br><br>
-    <%= f.label :combiner_flir_pic %><%= f.file_field :combiner_flir_pic, class: "btn btn-file" %>
-    <% if params[:pv_commission_id] %><%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] %><% end %>
-    </div>
-  </div>
-  <br>
-
-<!-- String test stuff -->
-<div class="row">
-  <span class="span9">
-    <H3>Edit Strings Individually:</H3>
-  </span>
+    <%= f.radio_button :initial_verification, false, :id=>"second", :style=>"display:none;" %>
+    <label for="second" class="btn btn-primary">Periodic Verification</label>
 </div>
-
-<%= f.fields_for :string_tests do |builder| %>
-  <%= render "string_tests", :f => builder %>
-<% end %>
-
-<!-- end String test stuff -->
-
-  <%= f.submit class: 'btn btn-primary' %>
-<% end %>
+<br>
+<br>
+<div class="row">
+  <div class="span3">
+    <%= f.label :inspector %><%= f.text_field :inspector, autofocus: true, placeholder: "Inspector" %>
+    <%= f.label :test_instruments %><%= f.text_field :test_instruments, placeholder: "Test Instruments" %>
+    <%= f.label :combiner %><%= f.text_field :combiner, placeholder: "Combiner" %>
+    <%= f.label :mfg %><%= f.text_field :mfg, placeholder: "MFG" %>
+  </div>
+  <div class="span3">
+    <% if !@pv_array_test.id %>
+      <p><b>Import Sting Tests (.CSV Only):</b></p> 
+        <%= f.fields_for :string_tests do |builder| %>
+          <%= builder.file_field :pv_array_test, class: "btn btn-file" %>
+        <% end %>
+    <% end %>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="span9">
+  <%= f.label :combiner_exterior_pic %><%= f.file_field :combiner_exterior_pic, class: "btn btn-file" %>
+  <%= f.label :combiner_interior_pic %><%= f.file_field :combiner_interior_pic, class: "btn btn-file" %>
+  <%= f.label :combiner_flir_pic %><%= f.file_field :combiner_flir_pic, class: "btn btn-file" %>
+  <% if params[:pv_commission_id] %><%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] %><% end %>
+  </div>
+</div>
