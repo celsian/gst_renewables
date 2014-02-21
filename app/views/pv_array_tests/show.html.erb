@@ -1,11 +1,12 @@
 <div class="row">
-  <span class="span7">
+  <span class="span6">
     <h2>PV Array Test: <%= @pv_array_test.test_number %></h2>
   </span>
-  <span class="span2">
+  <span class="span3">
     <p class="text-right">
-        <%= link_to "Edit", edit_pv_array_test_path(@pv_array_test), class: "btn btn-small btn-primary" %>
-        <%= link_to "Delete", @pv_array_test, data: { confirm: "Are you sure you want to permanently delete this PV Array Test?" }, class: "btn btn-small btn-danger", method: :delete %>
+      <%= link_to "Edit", edit_pv_array_test_path(@pv_array_test), class: "btn btn-small btn-primary" %>
+      <%= link_to "Edit All Strings", edit_all_string_tests_path(@pv_array_test), class: "btn btn-small btn-primary" %>
+      <%= link_to "Delete", @pv_array_test, data: { confirm: "Are you sure you want to permanently delete this PV Array Test?" }, class: "btn btn-small btn-danger", method: :delete %>
     </p>
   </span>
 </div>
@@ -44,15 +45,6 @@
     </td>
   </tr>
 </table>
-
-
-<div class="row">
-  <span class="span9" align="left">
-    <%= link_to "Edit All Strings", edit_all_string_tests_path(@pv_array_test), class: "btn btn-small btn-primary" %>
-    <%= link_to "Edit Strings Individually", edit_all_string_tests_individually_path(@pv_array_test), class: "btn btn-small btn-primary" %>
-  </span>
-</div>
-
 
 <% 0.upto(@tables) do |x| %>
 <div class="row">
@@ -197,7 +189,7 @@
 
 <div class="row">
   <span class="span2">
-    <%= link_to "Add String Test", new_string_test_path(@pv_array_test), class: "btn btn-small btn-primary" %>
+    <%# link_to "Add String Test", new_string_test_path(@pv_array_test), class: "btn btn-small btn-primary" %>
   </span>
 </div>
 
