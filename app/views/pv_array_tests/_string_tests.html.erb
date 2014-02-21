@@ -1,3 +1,11 @@
+<!-- String test stuff -->
+<br>
+<div class="row">
+  <span class="span9">
+    <H3>Edit Strings Individually:</H3>
+  </span>
+</div>
+
 <% 0.upto(@tables) do |x| %>
   <div class="row">
     <% if x == @tables && @string_tests.length % 10 != 0 %>
@@ -8,12 +16,115 @@
         <B><H4><%= "Strings: #{x*10+1} - #{x*10+10}" %></B></H4>
     <% end %>
 
-    <table class="table table-striped" border=1>
-      <tr>
-        <th class="smallck" colspan="2">String ID:</th>
-          <td class="smallck"><%= f.text_field :name, placeholder: "Name", style: 'font-size: 10px; height: 10px; width: 40px;', autofocus: true %></td>
-        </tr>
-    </table>
-    </span>
-  </div>
+<table class="table table-striped" border=1>
+  <tr>
+    <th class="smallck" colspan="2">String ID:</th>
+    <%= f.fields_for :string_tests do |builder| %>
+      <% if builder.options[:child_index] >= ((@string_count*@line)+(@row*10)) && builder.options[:child_index] < ((10 + (@string_count*@line))+(@row*10)) %>
+        <td class="smallck"><%= builder.text_field :name, placeholder: "Name", style: 'font-size: 10px; height: 10px; width: 40px;' %></td>
+      <% end %>
+    <% end %>
+    <% @line += 1 %>
+  </tr>
+  <tr>
+    <th class="small" rowspan="2" width=75px>Array</th>
+    <th class="small" width=80px>Module</th>
+    <%= render "string_tests_cell", :f => f, :value => :array_module, :value_text => "Array Module" %>
+  </tr>
+  <tr>
+    <th class="small">Quantity</th>
+    <%= render "string_tests_cell", :f => f, :value => :array_quantity, :value_text => "Array Quantity" %>
+  </tr>
+  <tr>
+    <th class="small" rowspan="2">Array Parameters</th>
+    <th class="small">Voc (stc)</th>
+    <%= render "string_tests_cell", :f => f, :value => :array_parameters_voc, :value_text => "VOC" %>
+  </tr>
+  <tr>
+    <th class="small">Isc (stc)</th>
+    <%= render "string_tests_cell", :f => f, :value => :array_parameters_isc, :value_text => "ISC" %>
+  </tr>
+  <tr>
+    <th class="small" rowspan="4">String Over-Current Protective Device</th>
+    <th class="small">Type</th>
+    <%= render "string_tests_cell", :f => f, :value => :string_type, :value_text => "Type" %>
+  </tr>
+  <tr>
+    <th class="small">Rating (A)</th>
+    <%= render "string_tests_cell", :f => f, :value => :string_rating, :value_text => "Rating" %>
+  </tr>
+  <tr>
+    <th class="small">D Rating (V)</th>
+    <%= render "string_tests_cell", :f => f, :value => :string_d_rating, :value_text => "D Rating" %>
+  </tr>
+  <tr>
+    <th class="small">Capacity (ka)</th>
+    <%= render "string_tests_cell", :f => f, :value => :string_capacity, :value_text => "Capacity" %>
+  </tr>
+  <tr>
+    <th class="small" rowspan="3">Wiring</th>
+    <th class="small">Type</th>
+    <%= render "string_tests_cell", :f => f, :value => :wiring_type, :value_text => "Type" %>
+  </tr>
+  <tr>
+    <th class="small">Insulation</th>
+    <%= render "string_tests_cell", :f => f, :value => :wiring_insulation, :value_text => "Insulation" %>
+  </tr>
+  <tr>
+    <th class="small">Size</th>
+    <%= render "string_tests_cell", :f => f, :value => :wiring_size, :value_text => "Size" %>
+  </tr>
+  <tr>
+    <th class="small" rowspan="4">String Test</th>
+    <th class="small">Voc (V)</th>
+    <%= render "string_tests_cell", :f => f, :value => :string_test_voc, :value_text => "VOC" %>
+  </tr>
+  <tr>
+    <th class="small">Isc (A)</th>
+    <%= render "string_tests_cell", :f => f, :value => :string_test_isc, :value_text => "ISC" %>
+  </tr>
+  <tr>
+    <th class="small">Irradiance</th>
+    <%= render "string_tests_cell", :f => f, :value => :string_test_irradiance, :value_text => "Irradiance" %>
+  </tr>
+  <tr>
+    <th class="small">Voltage</th>
+    <%= render "string_tests_cell", :f => f, :value => :string_test_voltage, :value_text => "Voltage" %>
+  </tr>
+  <tr>
+    <th class="small" rowspan="3">Array Insulation Resistance</th>
+    <th class="small">Test Voltage</th>
+    <%= render "string_tests_cell", :f => f, :value => :array_insulation_resistance_test_voltage, :value_text => "Test Voltage" %>
+  </tr>
+  <tr>
+    <th class="small">POS</th>
+    <%= render "string_tests_cell", :f => f, :value => :array_insulation_resistance_pos, :value_text => "POS" %>
+  </tr>
+    <tr>
+    <th class="small">NEG</th>
+    <%= render "string_tests_cell", :f => f, :value => :array_insulation_resistance_neg, :value_text => "NEG" %>
+  </tr>
+  <tr>
+    <th class="small">Array FLIR</th>
+    <th class="small">Picture</th>
+    <%= f.fields_for :string_tests do |builder| %>
+      <% if builder.options[:child_index] >= ((@string_count*@line)+(@row*10)) && builder.options[:child_index] < ((10 + (@string_count*@line))+(@row*10)) %>
+        <td class="smallc">
+          <B><%= builder.object.name %></B><BR>
+          <%= link_to (image_tag builder.object.array_module_flir_pic_url(:thumb_small).to_s), builder.object.array_module_flir_pic_url.to_s, target: "_blank" %><BR>
+          <%= builder.file_field :array_module_flir_pic, style: 'font-size: 10px; height: 22px; width: 44px;' %>
+        </td>
+      <% end %>
+    <% end %>
+    <% @line += 1 %>    
+  </tr>
+</table>
+
+  <% @row += 1 %>
+  </span>
+</div>
 <% end %>
+
+
+
+<!-- end String test stuff -->
