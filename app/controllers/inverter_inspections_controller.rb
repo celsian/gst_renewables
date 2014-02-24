@@ -1,12 +1,16 @@
 class InverterInspectionsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :require_viewer, only: [ :show ]
+  before_action :require_editor, except: [ :show ]
+
   def show
     @inverter_inspection = InverterInspection.find(params[:id])
+    @project = @inverter_inspection.pv_commission.project
   end
 
   def new
     @inverter_inspection = InverterInspection.new
     infobox = @inverter_inspection.infoboxes.build
-    # infobox.inspection_images.build
   end
 
   def edit
@@ -49,4 +53,18 @@ class InverterInspectionsController < ApplicationController
   def inverter_inspection_params
     params.require(:inverter_inspection).permit(:pv_commission_id, infoboxes_attributes: [:id, :title, :description, :_destroy, inspection_images_attributes: [:id, :pic, :_destroy]])
   end
+
+  def require_editor
+    unless current_user.editor == true || current_user.admin == true
+      redirect_to root_path, flash: { error: "You are not authorized to perform that action." }
+    end
+  end
+
+  def require_viewer
+    project = InverterInspection.find(params[:id]).pv_commission.project
+    unless project.reference_number == current_user.reference_number || current_user.admin || current_user.editor
+      redirect_to root_path, flash: { error: "You are not authorized to perform that action." }
+    end
+  end
+
 end
