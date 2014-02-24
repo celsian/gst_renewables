@@ -1,25 +1,43 @@
-<div class="row">
-  <span class="span7">
-    <H2>Projects: </h2>
-  </span>
-  <span class="span2">
-  </span>
-</div>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-    </tr>
-  </thead>
-  <% @projects.each_with_index do |project, index| %>
-    <tr>
-      <td width=40><%= index+1 %></td><td><%= link_to "#{project.name}", project %></td>
-    </tr>
-  <% end %>
-</table>
+<% if @projects && @projects.length > 0 %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th><h4>Project:</h4></th>
+        <th><h4>Reference Number:</h4></th>
+      </tr>
+    </thead>
+      <% @projects.each_with_index do |project, index| %>
+        <tr>
+          <td width=40><%= index+1 %></td><td><%= link_to "#{project.name}", project %></td><td><%= project.reference_number %></td>
+        </tr>
+      <% end %>
+  </table>
+<% else %>
+  <div class="row">
+    <span class="span9">
+      <P><B><h4>No projects to display.</H4></B></P>
+      <P>Please check that your Reference Number is correct via the Profile link at the top right of this page. If you are still unable to access your project, please contact the GST: Renewables Division.</P>
+      <BR>
+      <BR>
+      <BR>
+      <BR>
+      <BR>
+      <BR>
+      <BR>
+      <BR>
+      <BR>
+      <BR>
+      <BR>
+      <BR>
+    </span>
+  </div>
+<% end %>
 <div class="row">
   <span class="span9">
-    <%= link_to "New Project", new_project_path, class: "btn btn-small btn-primary" %>
+    <% if current_user.editor || current_user.admin %>
+      <%= link_to "New Project", new_project_path, class: "btn btn-small btn-primary" %>
+    <% end %>
   </span>
 </div>
 <br>
