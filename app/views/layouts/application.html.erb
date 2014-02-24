@@ -49,6 +49,19 @@
             <ul class="nav">
               <li><%= link_to "Projects", projects_path   %></li>
             </ul>
+            <ul class="nav pull-right">
+              <% if user_signed_in? %>
+                <% if current_user.admin %>
+                  <li><%# link_to "Admin", administrator_path %></font></li>
+                <% end %>
+                <li><%= link_to "Profile", edit_user_registration_path %></li>
+              <% end %>
+              <% if user_signed_in? %>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "Login", new_user_session_path %></li>
+              <% end %>
+            </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -59,19 +72,21 @@
   <div class="row">
     <div class="span9">
       <small>
-        <%= link_to "Projects", projects_path %>
-        <% if @project %>
-          > <%= "#{@project.name}" %>
-        <% elsif @pv_commission && @pv_commission.reference_number %>
-          > <%= link_to "#{@pv_commission.project.name}", @pv_commission.project %> > PV Commission: <%= @pv_commission.reference_number %>
-        <% elsif @string_test || @string_tests %>
-          > <%= link_to "#{@pv_array_test.pv_commission.project.name}", @pv_array_test.pv_commission.project %> > PV Commission: <%= link_to "#{@pv_array_test.pv_commission.reference_number}", @pv_array_test.pv_commission %> > PV Array Test <%= link_to "##{@pv_array_test.test_number}", @pv_array_test %> > String Tests
-        <% elsif @pv_array_test && @pv_array_test.pv_commission %>
-          > <%= link_to "#{@pv_array_test.pv_commission.project.name}", @pv_array_test.pv_commission.project %> > PV Commission: <%= link_to "#{@pv_array_test.pv_commission.reference_number}", @pv_array_test.pv_commission %> > PV Array Test #<%= @pv_array_test.test_number %>
-        <% elsif @visual_inspection && @visual_inspection.pv_commission %> <!-- remove false to enable -->
-          > <%= link_to "#{@visual_inspection.pv_commission.project.name}", @visual_inspection.pv_commission.project %> > PV Commission: <%= link_to "#{@visual_inspection.pv_commission.reference_number}", @visual_inspection.pv_commission %> > Visual Inspection #<%= params[:number] %>
-        <% elsif @inverter_inspection && @inverter_inspection.pv_commission %> <!-- remove false to enable -->
-           > <%= link_to "#{@inverter_inspection.pv_commission.project.name}", @inverter_inspection.pv_commission.project %> > PV Commission: <%= link_to "#{@inverter_inspection.pv_commission.reference_number}", @inverter_inspection.pv_commission %> > Inverter Inspection #<%= params[:number] %>
+        <%= link_to "Projects", projects_path %> > 
+        <% if @project && @project.name %>
+          <%= link_to "#{@project.name}", @project %> > 
+        <% end %>
+        <% if @pv_commission && @pv_commission.project %>
+          <%= "PV Commission: #{@pv_commission.reference_number}" %>
+        <% end %>
+        <% if @visual_inspection && @visual_inspection.pv_commission %>
+          <%= link_to "PV Commission: #{@visual_inspection.pv_commission.reference_number}", @visual_inspection.pv_commission %> > Inverter Inspection: <%= params[:number] %>
+        <% end %>
+        <% if @inverter_inspection && @inverter_inspection.pv_commission %>
+          <%= link_to "PV Commission: #{@inverter_inspection.pv_commission.reference_number}", @inverter_inspection.pv_commission %> > Inverter Inspection: <%= params[:number] %>
+        <% end %>
+        <% if @pv_array_test && @pv_array_test.pv_commission %>
+          <%= link_to "PV Commission: #{@pv_array_test.pv_commission.reference_number}", @pv_array_test.pv_commission %> > PV Array Test: <%= @pv_array_test.test_number %>
         <% end %>
       </small>
     </div>
@@ -85,15 +100,7 @@
             <%= bootstrap_flash %>
             <%= yield %>
           </div>
-          <div class="span3">
-            <div class="well sidebar-nav">
-              <h3>Quick Nav:</h3>
-              <ul class="nav nav-list">
-                <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Projects", projects_path %></li>
-              </ul>
-            </div><!--/.well -->
-          </div><!--/span-->
+          <!-- Sidebar went here -->
         </div><!--/row-->
 
       <footer>
@@ -109,3 +116,15 @@
 
   </body>
 </html>
+
+
+<!-- Sidebar -->
+<!-- <div class="span3">
+            <div class="well sidebar-nav">
+              <h3>Quick Nav:</h3>
+              <ul class="nav nav-list">
+                <li class="nav-header">Sidebar</li>
+                <li><%= link_to "Projects", projects_path %></li>
+              </ul>
+            </div><!--/.well -->
+          </div><!--/span-->
