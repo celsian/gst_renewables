@@ -4,21 +4,35 @@
   </span>
   <span class="span2">
     <p class="text-right">
-        <%= link_to "Edit", edit_visual_inspection_path(@visual_inspection), class: "btn btn-small btn-primary" %>
-        <%= link_to "Delete", @visual_inspection, data: { confirm: "Are you sure you want to permanently delete this Visual Inspection?" }, class: "btn btn-small btn-danger", method: :delete %>
+        <% if current_user.editor || current_user.admin %>
+          <%= link_to "Edit", edit_visual_inspection_path(@visual_inspection), class: "btn btn-small btn-primary" %>
+          <%= link_to "Delete", @visual_inspection, data: { confirm: "Are you sure you want to permanently delete this Visual Inspection?" }, class: "btn btn-small btn-danger", method: :delete %>
+        <% end %>
     </p>
   </span>
 </div>
 <div class="row">
   <span class="span9">
-    <% @visual_inspection.infoboxes.each do |visual_inspection| %>
-      <p><h4><%= visual_inspection.title %></h4></p>
-      <p><%= visual_inspection.description %></p>
-      <p>
-        <% visual_inspection.inspection_images.each do |picture| %>
-          <%= link_to image_tag(picture.pic_url(:thumb).to_s), picture.pic_url.to_s %>
-        <% end %>
-      </p><hr>
-    <% end %>
+    <table class="table table-striped">
+      <% @visual_inspection.infoboxes.each do |visual_inspection| %>
+        <tr>
+          <td>
+            <h4>
+              <%= visual_inspection.title %>:
+            </h4>
+            <p>
+              <li>
+                <%= visual_inspection.description %>
+              </li>
+            </p>
+            <p>
+              <% visual_inspection.inspection_images.each do |picture| %>
+                <%= link_to image_tag(picture.pic_url(:thumb).to_s), picture.pic_url.to_s %>
+              <% end %>
+            </p>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </span>
 </div><br>
