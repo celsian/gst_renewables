@@ -1,4 +1,8 @@
 class StringTestsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :require_viewer, only: [ :show ]
+  before_action :require_editor, except: [ :show ]
+
   def index
   end
   
@@ -61,6 +65,19 @@ class StringTestsController < ApplicationController
 
   def string_test_params
     params.require(:string_test).permit(:name, :array_module, :array_quantity, :array_parameters_voc, :array_parameters_isc, :string_type, :string_rating, :string_d_rating, :string_capacity, :wiring_type, :wiring_insulation, :wiring_size, :string_test_voc, :string_test_isc, :string_test_irradiance, :string_test_voltage, :array_insulation_resistance_test_voltage, :array_insulation_resistance_pos, :array_insulation_resistance_neg, :array_module_flir_pic)
+  end
+
+  def require_editor
+    unless current_user.editor == true || current_user.admin == true
+      redirect_to root_path, flash: { error: "You are not authorized to perform that action." }
+    end
+  end
+
+  def require_viewer
+    project = StringTest.find(params[:id]).pv_array_test.pv_commission.project
+    unless project.reference_number == current_user.reference_number || current_user.admin || current_user.editor
+      redirect_to root_path, flash: { error: "You are not authorized to perform that action." }
+    end
   end
 
 end
