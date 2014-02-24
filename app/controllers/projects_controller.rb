@@ -1,6 +1,20 @@
 class ProjectsController < ApplicationController
+  # include UserChecks
+  before_action :authenticate_user!
+  before_action :require_viewer, only: [ :show ]
+  before_action :require_editor, except: [ :index, :show, :destroy ]
+  before_action :require_admin, only: [ :destroy ]
+
   def index
-    @projects = Project.all
+    if current_user.editor || current_user.admin
+      @projects = Project.all
+    elsif current_user.reference_number
+      @projects = []
+      project = Project.find_by(reference_number: current_user.reference_number)
+      project != nil ? @projects << project : nil
+    else
+      @projects = []
+    end
   end
 
   def show
@@ -45,6 +59,25 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name)
+    params.require(:project).permit(:name, :reference_number)
+  end
+
+  def require_admin
+    unless current_user.admin == true
+      redirect_to root_path, flash: { error: "You are not authorized to perform that action." }
+    end
+  end
+
+  def require_editor
+    unless current_user.editor == true || current_user.admin == true
+      redirect_to root_path, flash: { error: "You are not authorized to perform that action." }
+    end
+  end
+
+  def require_viewer
+    project = Project.find(params[:id])
+    unless project.reference_number == current_user.reference_number || current_user.admin || current_user.editor
+      redirect_to root_path, flash: { error: "You are not authorized to perform that action." }
+    end
   end
 end
