@@ -1,6 +1,6 @@
 GstRenewables::Application.routes.draw do
   devise_for :users
-  root to: "projects#index"
+  root to: "welcome#index"
   resources :projects
   resources :pv_commissions
   resources :pv_array_tests
