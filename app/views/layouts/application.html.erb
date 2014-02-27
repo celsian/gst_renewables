@@ -52,7 +52,7 @@
             <ul class="nav pull-right">
               <% if user_signed_in? %>
                 <% if current_user.admin %>
-                  <li><%# link_to "Admin", administrator_path %></font></li>
+                  <li><%= link_to "Admin", administrator_path %></font></li>
                 <% end %>
                 <li><%= link_to "Profile", edit_user_registration_path %></li>
               <% end %>
@@ -72,21 +72,33 @@
   <div class="row">
     <div class="span9">
       <small>
-        <%= link_to "Projects", projects_path %> > 
+        <% if @users || @editors %>
+          <%= link_to "Admin Control Panel", admins_path %> 
+        <% end %>
+        <% if @users && !@editors %>
+          > Add Editors & Admins
+        <% end %>
+        <% if !@users && @editors %>
+          > Current Editors & Admins
+        <% end %>
+
+        <% if !@users && !@editors %>
+          <%= link_to "Projects", projects_path %>
+        <% end %>
         <% if @project && @project.name %>
-          <%= link_to "#{@project.name}", @project %> > 
+          > <%= link_to "#{@project.name}", @project %>  
         <% end %>
         <% if @pv_commission && @pv_commission.project %>
-          <%= "PV Commission: #{@pv_commission.reference_number}" %>
+          > <%= "PV Commission: #{@pv_commission.reference_number}" %>
         <% end %>
         <% if @visual_inspection && @visual_inspection.pv_commission %>
-          <%= link_to "PV Commission: #{@visual_inspection.pv_commission.reference_number}", @visual_inspection.pv_commission %> > Inverter Inspection: <%= params[:number] %>
+          > <%= link_to "PV Commission: #{@visual_inspection.pv_commission.reference_number}", @visual_inspection.pv_commission %> > Inverter Inspection: <%= params[:number] %>
         <% end %>
         <% if @inverter_inspection && @inverter_inspection.pv_commission %>
-          <%= link_to "PV Commission: #{@inverter_inspection.pv_commission.reference_number}", @inverter_inspection.pv_commission %> > Inverter Inspection: <%= params[:number] %>
+          > <%= link_to "PV Commission: #{@inverter_inspection.pv_commission.reference_number}", @inverter_inspection.pv_commission %> > Inverter Inspection: <%= params[:number] %>
         <% end %>
         <% if @pv_array_test && @pv_array_test.pv_commission %>
-          <%= link_to "PV Commission: #{@pv_array_test.pv_commission.reference_number}", @pv_array_test.pv_commission %> > PV Array Test: <%= @pv_array_test.test_number %>
+          > <%= link_to "PV Commission: #{@pv_array_test.pv_commission.reference_number}", @pv_array_test.pv_commission %> > PV Array Test: <%= @pv_array_test.test_number %>
         <% end %>
       </small>
     </div>
