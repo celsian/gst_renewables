@@ -1,0 +1,50 @@
+<div class="row span9offset1">
+  <span class="span8">
+    <table class="table table-striped" border=1>
+      <tr>
+        <th class="ck" colspan="2">
+          Editors
+        </th>
+        <th class="ck" colspan="2">
+          Administrators
+        </th>
+      </tr>
+      <% 0.upto(@rows-1) do |row| %>
+        <tr>
+            <% if @editors[row] %>
+              <td width="50%">
+              <%= @editors[row].email %>
+              <td>
+                <%= link_to "Remove", remove_editor_path(@editors[row].id), data: { confirm: "Are you sure you want to remove #{@admins[row].email} as an editor?" }, class: "btn btn-mini btn-danger" %>
+              </td>
+            <% else %>
+              <td width="50%" colspan="2">
+            <% end %>
+          </td>
+            <% if @admins[row] %>
+              <td width="50%">
+              <%= @admins[row].email %>
+              <td>
+                <% if @admins[row] == current_user %>
+                  <%= link_to "Remove", "", class: "btn btn-mini btn-default" %>
+                <% else %>
+                  <%= link_to "Remove", remove_admin_path(@admins[row].id), data: { confirm: "Are you sure you want to remove #{@admins[row].email} as an Editor?" }, class: "btn btn-mini btn-danger" %>
+                <% end %>
+              </td>
+            <% else %>
+              <td width="50%" colspan="2">
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </span>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
