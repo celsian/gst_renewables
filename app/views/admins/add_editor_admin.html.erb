@@ -1,0 +1,62 @@
+<h3>Search for Users by E-Mail:</h3>
+<%= form_tag add_editor_admin_path, :method => :get, :class => "form-search" do %>
+  <%= text_field_tag :q, '',size: 10, autofocus: true %>
+  <%= submit_tag "Search", class: 'btn btn-mini' %>
+<% end %>
+
+<% if @users.length > 0 %>
+<div class="row">
+  <span class="span6">
+    <table class="table table-striped" border=1>
+      <tr>
+        <th class="ck">
+          User:
+        </th>
+        <th class="ck" colspan="2" width="40%">
+          Action:
+        </th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= user.email %>
+          </td>
+          <td class="c">
+            <% if user.editor %>
+              <%= link_to "Already Editor", "", class: "btn btn-mini btn-default" %>
+            <% else %>
+              <%= link_to "Add as Editor", add_editor_path(user.id, params[:q]), data: { confirm: "Are you sure you want to add #{user.email} as an Editor?" }, class: "btn btn-mini btn-success" %>
+            <% end %>
+          </td>
+          <td class="c">
+            <% if user.admin %>
+              <%= link_to "Already Admin", "", class: "btn btn-mini btn-default" %>
+            <% else %>
+              <%= link_to "Add as Admin", add_admin_path(user.id, params[:q]), data: { confirm: "Are you sure you want to add #{user.email} as an Administrator?" }, class: "btn btn-mini btn-success" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </span>
+</div>
+<% else %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
