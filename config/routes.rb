@@ -7,6 +7,15 @@ GstRenewables::Application.routes.draw do
   resources :visual_inspections
   resources :inverter_inspections
   resources :string_tests
+  resources :admins, only: [:index]
+  get "/admin", to: "admins#index", as: "administrator"
+  get "/admin/add_editors_admins", to: "admins#add_editor_admin", as: "add_editor_admin"
+  get "/admin/view_editors_admins", to: "admins#view_editor_admin", as: "view_editor_admin"
+
+  get "/admin/user/:id/remove_admin", to: "admins#remove_admin", as: "remove_admin"
+  get "/admin/user/:id/remove_editor", to: "admins#remove_editor", as: "remove_editor"
+  get "/admin/user/:id/add_admin/:q", to: "admins#add_admin", as: "add_admin"
+  get "/admin/user/:id/add_editor/:q", to: "admins#add_editor", as: "add_editor"
 
   # resources :projects do
   #   resources :pv_commissions do
