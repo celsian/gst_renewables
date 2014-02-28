@@ -1,7 +1,7 @@
 class Infobox < ActiveRecord::Base
   belongs_to :visual_inspection
   belongs_to :inverter_inspection
-  has_many :inspection_images, :dependent => :destroy
+  has_many :inspection_images, dependent: :destroy
 
   validates :description, presence: true
 
