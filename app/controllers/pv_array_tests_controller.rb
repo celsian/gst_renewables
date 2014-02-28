@@ -29,9 +29,14 @@ class PvArrayTestsController < ApplicationController
     end
 
     if pv_array_test.save
-      StringTest.import(params["pv_array_test"]["string_tests_attributes"]["0"]["pv_array_test"], pv_array_test) #this passes the single CSV that the user selected which will always be in position 0 because there is only one string_tests.build in the pv_array_test controller
-
-      redirect_to pv_array_test, flash: {success: "PV Array Test was created."}
+      if params["pv_array_test"]["string_tests_attributes"]
+        StringTest.import(params["pv_array_test"]["string_tests_attributes"]["0"]["pv_array_test"], pv_array_test) #this passes the single CSV that the user selected which will always be in position 0 because there is only one string_tests.build in the pv_array_test controller
+        redirect_to pv_array_test, flash: {success: "PV Array Test was created."}
+      else
+        pv_commission = pv_array_test.pv_commission
+        pv_array_test.destroy
+        redirect_to pv_commission, flash: {error: "Error: PV Array Test was NOT created, String Test data was not included."}
+      end
     else
       render :new
     end
