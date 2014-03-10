@@ -1,4 +1,10 @@
 <%= form_for @pv_commission do |f| %>
+<div id="error_explanation">
+    <% if @pv_commission.errors.any? %>
+      <%= render "errors", object: f.object %>
+    <% end %>
+</div>
+
 <div class="form-horizontal">
     <% if params[:project_id] %><%= f.hidden_field :project_id, value: params[:project_id] %><% end %>
   <div class="control-group">
@@ -55,12 +61,6 @@
       <%= f.text_field :das_system_manufacturer, placeholder: "DAS System Manufacturer" %>
     </div>
   </div>
-</div>
-
-<div id="error_explanation">
-    <% if @pv_commission.errors.any? %>
-      <%= render "errors", object: f.object %>
-    <% end %>
 </div>
 
   <%= f.submit class: 'btn btn-primary'  %>

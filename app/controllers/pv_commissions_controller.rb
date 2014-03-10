@@ -19,10 +19,10 @@ class PvCommissionsController < ApplicationController
   end
 
   def create
-    pv_commission = PvCommission.new(pv_commission_params)
+    @pv_commission = PvCommission.new(pv_commission_params)
 
-    if pv_commission.save
-      redirect_to pv_commission, flash: {success: "PV Commissioning was created."}
+    if @pv_commission.save
+      redirect_to @pv_commission, flash: {success: "PV Commissioning was created."}
     else
       render :new
     end
@@ -33,12 +33,12 @@ class PvCommissionsController < ApplicationController
   end
 
   def update
-    pv_commission = PvCommission.find(params[:id])
+    @pv_commission = PvCommission.find(params[:id])
 
-    pv_commission.attributes = pv_commission_params
+    @pv_commission.attributes = pv_commission_params
 
-    if pv_commission.save
-      redirect_to pv_commission, flash: {success: "PV Commission was updated."}
+    if @pv_commission.save
+      redirect_to @pv_commission, flash: {success: "PV Commission was updated."}
     else
       render :edit
     end
