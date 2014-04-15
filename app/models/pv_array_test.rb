@@ -1,5 +1,6 @@
 class PvArrayTest < ActiveRecord::Base
   belongs_to :pv_commission
+  belongs_to :recombiner
   has_many :string_tests, dependent: :destroy
 
   default_scope order("id")
