@@ -1,0 +1,55 @@
+<div class="row">
+  <span class="span6">
+    <h2>Recombiner: <%= @recombiner.name %></h2>
+  </span>
+  <span class="span3">
+    <p class="text-right">
+      <% if current_user.editor || current_user.admin %>
+        <%= link_to "Edit", edit_recombiner_path(@recombiner), class: "btn btn-small btn-primary" %>
+        <%= link_to "Delete", @recombiner, data: { confirm: "Are you sure you want to permanently delete this Recombiner?" }, class: "btn btn-small btn-danger", method: :delete %>
+      <% end %>
+    </p>
+  </span>
+</div>
+
+<table class="table table-striped" width=75%>
+  <tr>
+    <td width=30%><B>Inspector:</B></td><td width=70%><%= @recombiner.inspector %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>Verification:</B></td><td width=70%><%= @recombiner.verification ? "Initial" : "Periodic" %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>Test Instrument:</B></td><td width=70%><%= @recombiner.test_instrument %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>Re-Combiner Model:</B></td><td width=70%><%= @recombiner.recombiner_model %></td>
+  </tr>
+  <tr>
+    <td width=30%><B>MFG:</B></td><td width=70%><%= @recombiner.mfg %></td>
+  </tr>
+</table>
+
+<table class="table table-striped">
+  <tr>
+    <th class="c">Re-Combiner Exterior Image</th><th class="c">Re-Combiner Interior Image</th><th class="c">Re-Combiner FLIR Image</th>
+  </tr>
+  <tr>
+    <td class="c">
+  <%= link_to image_tag(@recombiner.recombiner_exterior_pic_url(:thumb).to_s), @recombiner.recombiner_exterior_pic_url.to_s %>
+    </td>
+    <td class="c">
+  <%= link_to image_tag(@recombiner.recombiner_interior_pic_url(:thumb).to_s), @recombiner.recombiner_interior_pic_url.to_s %>
+    </td>
+    <td class="c">
+  <%= link_to image_tag(@recombiner.recombiner_flir_pic_url(:thumb).to_s), @recombiner.recombiner_flir_pic_url.to_s %>
+    </td>
+  </tr>
+</table>  
+
+<div class="row">
+  <span class="span1">
+  </span>
+</div>
+
+<!--  link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s -->
