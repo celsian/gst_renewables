@@ -29,6 +29,6 @@
   <%= f.label :combiner_exterior_pic %><%= f.file_field :combiner_exterior_pic, class: "btn btn-file" %><br><br>
   <%= f.label :combiner_interior_pic %><%= f.file_field :combiner_interior_pic, class: "btn btn-file" %><br><br>
   <%= f.label :combiner_flir_pic %><%= f.file_field :combiner_flir_pic, class: "btn btn-file" %><br><br>
-  <% if params[:pv_commission_id] %><%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] %><% end %>
+  <%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] ||= @pv_array_test.pv_commission_id %>
   </div>
 </div>
