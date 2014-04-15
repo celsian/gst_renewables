@@ -1,0 +1,44 @@
+<%= form_for @recombiner do |f| %>
+
+  <div id="error_explanation">
+      <% if @recombiner.errors.any? %>
+        <%= render "errors", object: f.object %>
+      <% end %>
+  </div>
+
+  <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true %><br><br>
+      
+      <div class="btn-group" data-toggle="buttons-radio">
+        <%= f.radio_button :verification, true, :id=>"first", :style=>"display:none;" %>
+        <label for="first" class="btn btn-primary">Initial Verification</label>
+
+        <%= f.radio_button :verification, false, :id=>"second", :style=>"display:none;" %>
+        <label for="second" class="btn btn-primary">Periodic Verification</label>
+      </div>
+      <br><br>
+
+      <%= f.label :inspector %>
+      <%= f.text_field :inspector %>
+
+      <%= f.label :test_instrument %>
+      <%= f.text_field :test_instrument %>
+
+      <%= f.label :recombiner_model %>
+      <%= f.text_field :recombiner_model %>
+
+      <%= f.label :recombiner_exterior_pic %>
+      <%= f.text_field :recombiner_exterior_pic %>
+
+      <%= f.label :recombiner_interior_pic %>
+      <%= f.text_field :recombiner_interior_pic %>
+
+      <%= f.label :recombiner_flir_pic %>
+      <%= f.text_field :recombiner_flir_pic %>
+
+      <%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] ||= @recombiner.pv_commission_id %>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary'  %>
+<% end %>
