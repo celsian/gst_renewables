@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226164835) do
+ActiveRecord::Schema.define(version: 20140414222436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,9 +89,27 @@ ActiveRecord::Schema.define(version: 20140226164835) do
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "recombiner_presence"
   end
 
   add_index "pv_commissions", ["project_id"], name: "index_pv_commissions_on_project_id", using: :btree
+
+  create_table "recombiners", force: true do |t|
+    t.string   "name"
+    t.string   "inspector"
+    t.boolean  "verification"
+    t.string   "test_instrument"
+    t.string   "recombiner_model"
+    t.string   "mfg"
+    t.string   "recombiner_exterior_pic"
+    t.string   "recombiner_interior_pic"
+    t.string   "recombiner_flir_pic"
+    t.integer  "pv_commission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "recombiners", ["pv_commission_id"], name: "index_recombiners_on_pv_commission_id", using: :btree
 
   create_table "string_tests", force: true do |t|
     t.integer  "pv_array_test_id"
