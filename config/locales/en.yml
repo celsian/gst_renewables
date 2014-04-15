@@ -37,9 +37,16 @@ en:
         recombiner_make_model: "Re-Combiner Make/Model"
         inverter_make_model: "Inverter Make/Model"
         das_system_manufacturer: "DAS System Manufacturer"
+        recombiner?: "Re-Combiner?"
       pv_array_test:
         test_instruments: "Test Instruments"
         mfg: "MFG"
         combiner_exterior_pic: "Combiner Exterior Image"
         combiner_interior_pic: "Combiner Interior Image"
         combiner_flir_pic: "Combiner FLIR Image"
+      recombiner:
+        test_instrument: "Test Instrument"
+        mfg: "MFG"
+        recombiner_exterior_pic: "Re-Combiner Exterior Image"
+        recombiner_interior_pic: "Re-Combiner Interior Image"
+        recombiner_flir_pic: "Re-Combiner FLIR Image"
