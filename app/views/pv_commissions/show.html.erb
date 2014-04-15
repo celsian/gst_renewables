@@ -60,7 +60,17 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th class="c">Visual Inspection</th><th class="c"><B>PV Array Test</th><th class="c"><B>Inverter Insepction</th>
+      <th class="c"><B>Visual Inspection</B></th>
+      <th class="c">
+        <B>
+          <% if @pv_commission.recombiner_presence == "Yes" %>
+            Re-Combiner
+          <% else %>
+            PV Array Test
+          <% end %>
+        </B>
+      </th>
+      <th class="c"><B>Inverter Insepction</B></th>
     </tr>
   </thead>
 <!-- the important part -->
@@ -74,10 +84,18 @@
       <% end %>
     </td>
     <td class="c">
-      <% if @pv_commission.pv_array_tests[row] %>
-        <%= link_to "Test: #{@pv_commission.pv_array_tests[row].test_number}", @pv_commission.pv_array_tests[row] %>
-      <% else %>
+      <% if @pv_commission.recombiner_presence %>
+        <% if @pv_commission.recombiners[row] %>
+          <%= link_to "#{@pv_commission.recombiners[row].name}", @pv_commission.recombiners[row] %>
+        <% else %>
 
+        <% end %>
+      <% else %>
+        <% if @pv_commission.pv_array_tests[row] %>
+          <%= link_to "Test: #{@pv_commission.pv_array_tests[row].test_number}", @pv_commission.pv_array_tests[row] %>
+        <% else %>
+
+        <% end %>
       <% end %>
     </td>
     <td class="c">
@@ -98,7 +116,11 @@
     </td>
     <td class="c">
         <% if current_user.editor || current_user.admin %>
-          <%= link_to "New PV Array Test", new_pv_array_test_path(pv_commission_id: @pv_commission.id), class: "btn btn-small btn-primary" %>
+          <% if @pv_commission.recombiner_presence == "Yes" %>
+            <%= link_to "New Recombiner", new_recombiner_path(pv_commission_id: @pv_commission.id), class: "btn btn-small btn-primary" %>
+          <% else %>
+            <%= link_to "New PV Array Test", new_pv_array_test_path(pv_commission_id: @pv_commission.id), class: "btn btn-small btn-primary" %>
+          <% end %>
         <% end %>
     </td>
     <td class="c">
