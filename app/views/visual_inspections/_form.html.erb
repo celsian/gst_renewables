@@ -5,10 +5,6 @@
           <P>
           <%= link_to_add_fields "Add Inspection", f, :infoboxes %>
           </p>
-          <% if params[:pv_commission_id] %>
-            <%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] %>
-          <% elsif @visual_inspection.pv_commission_id %>
-            <%= f.hidden_field :pv_commission_id, value: @visual_inspection.pv_commission_id %>
-          <% end %>
+          <%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] ||= @visual_inspection.pv_commission_id %>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
