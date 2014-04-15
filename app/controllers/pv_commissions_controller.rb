@@ -22,7 +22,7 @@ class PvCommissionsController < ApplicationController
     @pv_commission = PvCommission.new(pv_commission_params)
 
     if @pv_commission.save
-      redirect_to @pv_commission, flash: {success: "PV Commissioning was created."}
+      redirect_to @pv_commission, flash: {success: "PV Commission was created."}
     else
       render :new
     end
@@ -55,7 +55,7 @@ class PvCommissionsController < ApplicationController
   private
 
   def pv_commission_params
-    params.require(:pv_commission).permit(:reference_number, :owner, :dc_system_size, :ac_system_size, :module_make_model, :module_quantity,
+    params.require(:pv_commission).permit(:recombiner_presence, :reference_number, :owner, :dc_system_size, :ac_system_size, :module_make_model, :module_quantity,
       :combiner_make_model, :recombiner_make_model, :inverter_make_model, :inverter_serial_number, :das_system_manufacturer,
       :project_id)
   end
