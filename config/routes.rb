@@ -3,6 +3,7 @@ GstRenewables::Application.routes.draw do
   root to: "welcome#index"
   resources :projects
   resources :pv_commissions
+  resources :recombiners
   resources :pv_array_tests
   resources :visual_inspections
   resources :inverter_inspections
