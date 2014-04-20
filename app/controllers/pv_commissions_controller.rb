@@ -24,6 +24,7 @@ class PvCommissionsController < ApplicationController
     if @pv_commission.save
       redirect_to @pv_commission, flash: {success: "PV Commission was created."}
     else
+      flash[:error] = "Error: #{@pv_commission.error_messages}"
       render :new
     end
   end
@@ -40,6 +41,7 @@ class PvCommissionsController < ApplicationController
     if @pv_commission.save
       redirect_to @pv_commission, flash: {success: "PV Commission was updated."}
     else
+      flash[:error] = "Error: #{@pv_commission.error_messages}"
       render :edit
     end
   end
