@@ -1,0 +1,5 @@
+<span class="fields">
+  <%= link_to (image_tag f.object.pic_url(:thumb)), f.object.pic_url.to_s if f.object.pic? %><br>
+  <%= f.file_field :pic, style: "width:180px;", class: "btn btn-file"%> <%= f.hidden_field :_destroy %> <%= link_to_remove_fields 'X', f %>
+  <br><br>
+</span>
