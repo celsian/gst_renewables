@@ -26,6 +26,7 @@ class StringTestsController < ApplicationController
     if string_test.save
       redirect_to string_test.pv_array_test, flash: {success: "String Test #{string_test.name} was updated."}
     else
+      flash[:error] = "Error: #{string_test.error_messages}"
       render :edit
     end
   end
