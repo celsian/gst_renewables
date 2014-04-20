@@ -1,9 +1,4 @@
 <%= form_for @pv_commission do |f| %>
-<div id="error_explanation">
-    <% if @pv_commission.errors.any? %>
-      <%= render "errors", object: f.object %>
-    <% end %>
-</div>
 
 <div class="form-horizontal">
     <%= f.hidden_field :project_id, value: params[:project_id] ||= @pv_commission.project_id %>
