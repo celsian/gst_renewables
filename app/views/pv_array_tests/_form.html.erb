@@ -1,3 +1,4 @@
+
 <div class="btn-group" data-toggle="buttons-radio">
     <%= f.radio_button :initial_verification, true, :id=>"first", :style=>"display:none;" %>
     <label for="first" class="btn btn-primary">Initial Verification</label>
@@ -9,26 +10,45 @@
 <br>
 <div class="row">
   <div class="span3">
-    <%= f.label :inspector %><%= f.text_field :inspector, autofocus: true, placeholder: "Inspector" %>
+    <%= f.label :name %><%= f.text_field :name, autofocus: true, placeholder: "Name" %>
+    <%= f.label :inspector %><%= f.text_field :inspector, placeholder: "Inspector" %>
     <%= f.label :test_instruments %><%= f.text_field :test_instruments, placeholder: "Test Instruments" %>
     <%= f.label :combiner %><%= f.text_field :combiner, placeholder: "Combiner" %>
     <%= f.label :mfg %><%= f.text_field :mfg, placeholder: "MFG" %>
+    <br>
+    <br>
+    <%= f.label :combiner_exterior_pic %><%= f.file_field :combiner_exterior_pic, class: "btn btn-file" %><br><br>
+    <%= f.label :combiner_interior_pic %><%= f.file_field :combiner_interior_pic, class: "btn btn-file" %><br><br>
+    <%= f.label :combiner_flir_pic %><%= f.file_field :combiner_flir_pic, class: "btn btn-file" %><br><br>
+    <%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] ||= @pv_array_test.pv_commission_id %>
+    <%= f.hidden_field :recombiner_id, value: params[:recombiner_id] ||= @pv_array_test.recombiner_id %>
   </div>
-  <div class="span3">
+  <div class="span3 offset1">
     <% if !@pv_array_test.id %>
       <p><b>Import Sting Tests (.CSV Only):</b></p> 
         <%= f.fields_for :string_tests do |builder| %>
           <%= builder.file_field :pv_array_test, class: "btn btn-file" %>
         <% end %>
     <% end %>
+
+    <% if params[:recombiner_id] || @pv_array_test.recombiner_id %>
+      <br>
+      <br>
+      <br>
+      <p>
+        <b>Combiner Results:</b>
+      </p>
+      <%= f.label :megger_test %><%= f.text_field :megger_test, placeholder: "Megger Test Results" %>
+      <%= f.label :comments %><%= f.text_area :comments, placeholder: "Comments" %>
+      <%= f.label :voltage %><%= f.text_field :voltage, placeholder: "Voltage" %>
+      <%= f.label :test_voltage %><%= f.text_field :test_voltage, placeholder: "Test Voltage" %>
+      <%= f.label :pos %><%= f.text_field :pos, placeholder: "POS" %>
+      <%= f.label :neg %><%= f.text_field :neg, placeholder: "NEG" %>
+    <% end %>
   </div>
 </div>
 <br>
 <div class="row">
   <div class="span9">
-  <%= f.label :combiner_exterior_pic %><%= f.file_field :combiner_exterior_pic, class: "btn btn-file" %><br><br>
-  <%= f.label :combiner_interior_pic %><%= f.file_field :combiner_interior_pic, class: "btn btn-file" %><br><br>
-  <%= f.label :combiner_flir_pic %><%= f.file_field :combiner_flir_pic, class: "btn btn-file" %><br><br>
-  <%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] ||= @pv_array_test.pv_commission_id %>
   </div>
 </div>
