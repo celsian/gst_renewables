@@ -33,6 +33,7 @@ class ProjectsController < ApplicationController
       # Note.create(student: @student, note: "Student #{@student.id_number} was created.")
       redirect_to projects_path, flash: {success: "Project was created."}
     else
+      flash[:error] = "Error: #{@project.error_messages}"
       render :new
     end
   end
@@ -47,6 +48,7 @@ class ProjectsController < ApplicationController
     if project.save
       redirect_to project, flash: {success: "Project was updated."}
     else
+      flash[:error] = "Error: #{@project.error_messages}"
       render :edit
     end
   end
