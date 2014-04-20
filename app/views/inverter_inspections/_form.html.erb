@@ -1,4 +1,5 @@
 <%= form_for @inverter_inspection do |f| %>
+  <%= f.label :name %><%= f.text_field :name, placeholder: "Inverter Name" %>
           <%= f.fields_for :infoboxes do |builder| %>
             <%= render "infobox_fields", :f => builder %>
           <% end %>
