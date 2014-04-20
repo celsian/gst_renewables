@@ -51,7 +51,7 @@ class InverterInspectionsController < ApplicationController
   private
 
   def inverter_inspection_params
-    params.require(:inverter_inspection).permit(:pv_commission_id, infoboxes_attributes: [:id, :title, :description, :_destroy, inspection_images_attributes: [:id, :pic, :_destroy]])
+    params.require(:inverter_inspection).permit(:name, :pv_commission_id, infoboxes_attributes: [:id, :title, :description, :_destroy, inspection_images_attributes: [:id, :pic, :_destroy]])
   end
 
   def require_editor
