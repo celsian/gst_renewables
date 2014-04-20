@@ -11,4 +11,12 @@ class PvArrayTest < ActiveRecord::Base
   mount_uploader :combiner_interior_pic, CombinerUploader
   mount_uploader :combiner_flir_pic, CombinerUploader
   
+  def error_messages
+    messages = ""
+    errors.full_messages.each do |message|
+      messages += message + "."
+    end
+    messages
+  end
+  
 end
