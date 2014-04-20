@@ -95,10 +95,19 @@
           > <%= link_to "PV Commission: #{@visual_inspection.pv_commission.reference_number}", @visual_inspection.pv_commission %> > Inverter Inspection: <%= params[:number] %>
         <% end %>
         <% if @inverter_inspection && @inverter_inspection.pv_commission %>
-          > <%= link_to "PV Commission: #{@inverter_inspection.pv_commission.reference_number}", @inverter_inspection.pv_commission %> > Inverter Inspection: <%= params[:number] %>
+          > <%= link_to "PV Commission: #{@inverter_inspection.pv_commission.reference_number}", @inverter_inspection.pv_commission %> > Inverter Inspection: <%= @inverter_inspection.name %>
+        <% end %>
+        <% if @data_acquisition_system && @data_acquisition_system.pv_commission %>
+          > <%= link_to "PV Commission: #{@data_acquisition_system.pv_commission.reference_number}", @data_acquisition_system.pv_commission %> > Data Acquisition System: <%= @data_acquisition_system.name %>
         <% end %>
         <% if @pv_array_test && @pv_array_test.pv_commission %>
-          > <%= link_to "PV Commission: #{@pv_array_test.pv_commission.reference_number}", @pv_array_test.pv_commission %> > PV Array Test: <%= @pv_array_test.test_number %>
+          > <%= link_to "PV Commission: #{@pv_array_test.pv_commission.reference_number}", @pv_array_test.pv_commission %> > PV Array Test: <%= @pv_array_test.name %>
+        <% end %>
+        <% if @recombiner && @recombiner.pv_commission %>
+          > <%= link_to "PV Commission: #{@recombiner.pv_commission.reference_number}", @recombiner.pv_commission %> > Recombiner: <%= @recombiner.name %>
+        <% end %>
+        <% if @pv_array_test && @pv_array_test.recombiner %>
+          > <%= link_to "PV Commission: #{@pv_array_test.recombiner.pv_commission.reference_number}", @pv_array_test.recombiner.pv_commission %> > <%= link_to "Recombiner: #{@pv_array_test.recombiner.name}", @pv_array_test.recombiner %> > PV Array Test: <%= @pv_array_test.name %>
         <% end %>
       </small>
     </div>
