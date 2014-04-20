@@ -10,6 +10,7 @@ class RecombinersController < ApplicationController
 
   def show
     @recombiner = Recombiner.find(params[:id])
+    @project = @recombiner.pv_commission.project
   end
 
   def new
@@ -22,16 +23,26 @@ class RecombinersController < ApplicationController
     if recombiner.save
       redirect_to recombiner, flash: {success: "Recombiner was created."}
     else
+      flash[:error] = "Error: #{@recombiner.error_messages}"
       render :new
     end
   end
 
   def edit
-
+    @recombiner = Recombiner.find(params[:id])
   end
 
   def update
+    @recombiner = Recombiner.find(params[:id])
 
+    @recombiner.attributes = recombiner_params
+
+    if @recombiner.save
+      redirect_to @recombiner, flash: {success: "Recombiner was updated."}
+    else
+      flash[:error] = "Error: #{@recombiner.error_messages}"
+      render :edit
+    end
   end
 
   def destroy
