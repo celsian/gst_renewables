@@ -1,6 +1,7 @@
 class Infobox < ActiveRecord::Base
   belongs_to :visual_inspection
   belongs_to :inverter_inspection
+  belongs_to :data_acquisition_system
   has_many :inspection_images, dependent: :destroy
 
   validates :description, presence: true
@@ -14,5 +15,9 @@ class Infobox < ActiveRecord::Base
   INVERTER_INSPECTION = ["Corrosion", "Fan/Blower", "Air Filter", "Terminal Block", "Surge Suppressor", "DC Cable",
     "AC Cable", "Interior FLIR Pictures", "Operating Voltages and Readings", "Anti-Islanding Test", "Warranty Compliance",
    "Other"]
-   
+
+
+  DATA_ACQUISITION_SYSTEM = ["Irradiance Readings", "Cell Temperature Readings", "Compare Power Measurement with Inverter Reading",
+    "Verify Internet Connectivity", "Check for Alarm Reporting", "Inspect and Clean Weather Station"]
+
 end
