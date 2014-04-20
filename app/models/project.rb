@@ -5,4 +5,13 @@ class Project < ActiveRecord::Base
   validates :reference_number, uniqueness: true
 
   default_scope { order("name") }
+
+  def error_messages
+    messages = ""
+    errors.full_messages.each do |message|
+      messages += message + "."
+    end
+    messages
+  end
+  
 end
