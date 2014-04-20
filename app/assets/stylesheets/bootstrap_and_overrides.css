@@ -6,7 +6,9 @@
   =require twitter-bootstrap-static/fontawesome
   */
   .table td.c { text-align: center; }
+  .table td.b { font-weight: bold; text-align: center; }
   .table td.small { font-size:12px; }
+  .table td.elevenpt { font-size:11px; }
   .table td.smallc { font-size:11px; text-align: center; }
   .table td.smallck { font-size:11px; text-align: center; color:#FFF; background-color:#000000 !important; }
 
@@ -15,6 +17,7 @@
   .table th.smallc { font-size:12px; text-align: center; }
   .table th.smallck { font-size:12px; text-align: center; color:#FFF; background-color:#000000 !important; }
   .table th.ck { text-align: center; color:#FFF; background-color:#303030 !important; }
+  .table th.ckk { text-align: center; color:#FFF; background-color:#000000 !important; }
 
   .table tr.white_on_black { color:#FFF; background-color:#000000 !important; }
 

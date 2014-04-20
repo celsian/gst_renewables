@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414222436) do
+ActiveRecord::Schema.define(version: 20140420051130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20140414222436) do
     t.datetime "updated_at"
   end
 
+  create_table "data_acquisition_systems", force: true do |t|
+    t.string   "name"
+    t.integer  "pv_commission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "data_acquisition_systems", ["pv_commission_id"], name: "index_data_acquisition_systems_on_pv_commission_id", using: :btree
+
   create_table "infoboxes", force: true do |t|
     t.string   "title"
     t.string   "description"
@@ -28,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140414222436) do
     t.integer  "inverter_inspection_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "data_acquisition_system_id"
   end
 
   add_index "infoboxes", ["inverter_inspection_id"], name: "index_infoboxes_on_inverter_inspection_id", using: :btree
@@ -44,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140414222436) do
 
   create_table "inverter_inspections", force: true do |t|
     t.integer  "pv_commission_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,6 +70,14 @@ ActiveRecord::Schema.define(version: 20140414222436) do
 
   create_table "pv_array_tests", force: true do |t|
     t.integer  "pv_commission_id"
+    t.integer  "recombiner_id"
+    t.string   "name"
+    t.string   "megger_test"
+    t.string   "comments"
+    t.string   "voltage"
+    t.string   "test_voltage"
+    t.string   "pos"
+    t.string   "neg"
     t.string   "test_number"
     t.boolean  "initial_verification"
     t.string   "inspector"
@@ -73,6 +92,7 @@ ActiveRecord::Schema.define(version: 20140414222436) do
   end
 
   add_index "pv_array_tests", ["pv_commission_id"], name: "index_pv_array_tests_on_pv_commission_id", using: :btree
+  add_index "pv_array_tests", ["recombiner_id"], name: "index_pv_array_tests_on_recombiner_id", using: :btree
 
   create_table "pv_commissions", force: true do |t|
     t.string   "reference_number"
