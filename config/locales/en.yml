@@ -46,6 +46,7 @@ en:
         combiner_flir_pic: "Combiner FLIR Image"
       recombiner:
         test_instrument: "Test Instrument"
+        recombiner_model: "Model"
         mfg: "MFG"
         recombiner_exterior_pic: "Re-Combiner Exterior Image"
         recombiner_interior_pic: "Re-Combiner Interior Image"
