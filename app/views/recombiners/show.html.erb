@@ -23,7 +23,7 @@
     <td width=30%><B>Test Instrument:</B></td><td width=70%><%= @recombiner.test_instrument %></td>
   </tr>
   <tr>
-    <td width=30%><B>Re-Combiner Model:</B></td><td width=70%><%= @recombiner.recombiner_model %></td>
+    <td width=30%><B>Model:</B></td><td width=70%><%= @recombiner.recombiner_model %></td>
   </tr>
   <tr>
     <td width=30%><B>MFG:</B></td><td width=70%><%= @recombiner.mfg %></td>
@@ -47,9 +47,14 @@
   </tr>
 </table>  
 
-<div class="row">
-  <span class="span1">
-  </span>
-</div>
-
-<!--  link_to image_tag(@pv_array_test.combiner_flir_pic_url(:thumb_small).to_s), @pv_array_test.combiner_flir_pic_url.to_s -->
+<table class="table table-striped" border=1>
+  <tr>
+    <th class="ckk">Combiner:</th><th class="smallck">Megger Test:</th><th class="smallck" width="300">Comments:</th><th class="smallck">Voltage:</th><th class="smallck">Test Voltage:</th><th class="smallck">POS:</th><th class="smallck">NEG:</th>
+  </tr>
+  <% @recombiner.pv_array_tests.each do |pv_array_test| %>
+    <tr>
+      <td class="b"><%= link_to pv_array_test.name, pv_array_test %></td><td class="c"><%= pv_array_test.megger_test %></td><td class="small"><%= pv_array_test.comments %></td><td class="c"><%= pv_array_test.voltage %></td><td class="c"><%= pv_array_test.test_voltage %></td><td class="c"><%= pv_array_test.pos %></td><td class="c"><%= pv_array_test.neg %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "New PV Array Test", new_pv_array_test_path(recombiner_id: @recombiner.id), class: "btn btn-small btn-primary" %>
