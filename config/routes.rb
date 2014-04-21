@@ -7,6 +7,7 @@ GstRenewables::Application.routes.draw do
   resources :pv_array_tests
   resources :visual_inspections
   resources :inverter_inspections
+  resources :data_acquisition_systems
   resources :string_tests
   resources :admins, only: [:index]
   get "/admin", to: "admins#index", as: "administrator"
