@@ -1,11 +1,5 @@
 <%= form_for @recombiner do |f| %>
 
-  <div id="error_explanation">
-      <% if @recombiner.errors.any? %>
-        <%= render "errors", object: f.object %>
-      <% end %>
-  </div>
-
   <div class="field">
       <%= f.label :name %>
       <%= f.text_field :name, autofocus: true %><br><br>
@@ -28,14 +22,16 @@
       <%= f.label :recombiner_model %>
       <%= f.text_field :recombiner_model %>
 
-      <%= f.label :recombiner_exterior_pic %>
-      <%= f.text_field :recombiner_exterior_pic %>
+      <%= f.label :mfg %>
+      <%= f.text_field :mfg %>
 
-      <%= f.label :recombiner_interior_pic %>
-      <%= f.text_field :recombiner_interior_pic %>
-
-      <%= f.label :recombiner_flir_pic %>
-      <%= f.text_field :recombiner_flir_pic %>
+<div class="row">
+  <div class="span9">
+  <%= f.label :recombiner_exterior_pic %><%= f.file_field :recombiner_exterior_pic, class: "btn btn-file" %><br><br>
+  <%= f.label :recombiner_interior_pic %><%= f.file_field :recombiner_interior_pic, class: "btn btn-file" %><br><br>
+  <%= f.label :recombiner_flir_pic %><%= f.file_field :recombiner_flir_pic, class: "btn btn-file" %><br><br>
+  </div>
+</div>
 
       <%= f.hidden_field :pv_commission_id, value: params[:pv_commission_id] ||= @recombiner.pv_commission_id %>
   </div>
