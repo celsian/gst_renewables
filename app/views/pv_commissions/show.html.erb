@@ -71,6 +71,7 @@
         </B>
       </th>
       <th class="c"><B>Inverter Insepction</B></th>
+      <th class="c"><B>DAS</B></th>
     </tr>
   </thead>
 <!-- the important part -->
@@ -84,7 +85,7 @@
       <% end %>
     </td>
     <td class="c">
-      <% if @pv_commission.recombiner_presence %>
+      <% if @pv_commission.recombiner_presence == "Yes" %>
         <% if @pv_commission.recombiners[row] %>
           <%= link_to "#{@pv_commission.recombiners[row].name}", @pv_commission.recombiners[row] %>
         <% else %>
@@ -92,7 +93,7 @@
         <% end %>
       <% else %>
         <% if @pv_commission.pv_array_tests[row] %>
-          <%= link_to "Test: #{@pv_commission.pv_array_tests[row].test_number}", @pv_commission.pv_array_tests[row] %>
+          <%= link_to "#{@pv_commission.pv_array_tests[row].name}", @pv_commission.pv_array_tests[row] %>
         <% else %>
 
         <% end %>
@@ -100,7 +101,14 @@
     </td>
     <td class="c">
       <% if @pv_commission.inverter_inspections[row] %>
-        <%= link_to "Inverter Inspection: #{(row+1).to_s.rjust(3, '0')}", inverter_inspection_path(@pv_commission.inverter_inspections[row], number: (row+1).to_s.rjust(3, '0')) %>
+        <%= link_to "#{@pv_commission.inverter_inspections[row].name}", inverter_inspection_path(@pv_commission.inverter_inspections[row]) %>
+      <% else %>
+
+      <% end %>
+    </td>
+    <td class="c">
+      <% if @pv_commission.data_acquisition_systems[row] %>
+        <%= link_to "#{@pv_commission.data_acquisition_systems[row].name}", data_acquisition_system_path(@pv_commission.data_acquisition_systems[row]) %>
       <% else %>
 
       <% end %>
@@ -126,6 +134,11 @@
     <td class="c">
         <% if current_user.editor || current_user.admin %>
           <%= link_to "New Inverter Inspection", new_inverter_inspection_path(pv_commission_id: @pv_commission.id), class: "btn btn-small btn-primary" %>
+        <% end %>
+    </td>
+    <td class="c">
+        <% if current_user.editor || current_user.admin %>
+          <%= link_to "New DAS", new_data_acquisition_system_path(pv_commission_id: @pv_commission.id), class: "btn btn-small btn-primary" %>
         <% end %>
     </td>
   </tr>
