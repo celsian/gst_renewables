@@ -17,3 +17,6 @@
 
 #ignore all uploads from carrierwave
 /public/uploads
+
+#database.yml
+/config/database.yml
