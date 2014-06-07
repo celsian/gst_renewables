@@ -47,8 +47,10 @@ set :ssh_options, { :forward_agent => true, :port => 22 }
 
 namespace :deploy do
   desc "Symlink shared config files"
-  task :symlink_config_files do
-      execute "ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+  on roles(:app), in: :sequence, wait: 0 do
+    task :symlink_config_files do
+        execute "ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+    end
   end
 
   desc 'Restart application'
