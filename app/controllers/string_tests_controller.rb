@@ -75,8 +75,13 @@ class StringTestsController < ApplicationController
   end
 
   def require_viewer
-    project = StringTest.find(params[:id]).pv_array_test.pv_commission.project
-    unless project.reference_number == current_user.reference_number || current_user.admin || current_user.editor
+    if StringTest.find(params[:id]).pv_array_test.pv_commission
+      project = StringTest.find(params[:id]).pv_array_test.pv_commission.project
+    else
+      project = StringTest.find(params[:id]).pv_array_test.recombiner.pv_commission.project
+    end
+
+    unless project.users.exists?(current_user) || current_user.admin || current_user.editor
       redirect_to root_path, flash: { error: "You are not authorized to perform that action." }
     end
   end

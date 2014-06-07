@@ -72,21 +72,24 @@
   <div class="row">
     <div class="span9">
       <small>
-        <% if @users || @editors %>
+        <% if (@users || @editors) && !@project %>
           <%= link_to "Admin Control Panel", admins_path %> 
         <% end %>
-        <% if @users && !@editors %>
+        <% if @users && !@editors && !@project %>
           > Add Editors & Admins
         <% end %>
-        <% if !@users && @editors %>
+        <% if !@users && @editors && !@project %>
           > Current Editors & Admins
         <% end %>
 
-        <% if !@users && !@editors %>
+        <% if !@users && !@editors || @project && !@editors %>
           <%= link_to "Projects", projects_path %>
         <% end %>
         <% if @project && @project.name %>
           > <%= link_to "#{@project.name}", @project %>  
+        <% end %>
+        <% if @project && @project.name && @users %>
+          > Add & Remove Users
         <% end %>
         <% if @pv_commission && @pv_commission.project %>
           > <%= "PV Commission: #{@pv_commission.reference_number}" %>
