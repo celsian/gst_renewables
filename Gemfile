@@ -21,6 +21,7 @@ gem "twitter-bootstrap-rails"
 gem 'rails_12factor', group: :production
 
 gem 'pry-rails'
+gem 'awesome_print'
 
 
 # Use SCSS for stylesheets
@@ -54,6 +55,14 @@ end
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :production do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+
+  # gem 'capistrano-rbenv', "~> 2.0" 
 end
 
 # Use ActiveModel has_secure_password
