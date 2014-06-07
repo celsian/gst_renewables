@@ -1,8 +1,8 @@
 class Project < ActiveRecord::Base
   has_many :pv_commissions
+  has_and_belongs_to_many :users
   validates :name, presence: true
   validates :name, uniqueness: true
-  validates :reference_number, uniqueness: true
 
   default_scope { order("name") }
 
