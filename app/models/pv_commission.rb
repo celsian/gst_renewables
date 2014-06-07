@@ -26,5 +26,19 @@ class PvCommission < ActiveRecord::Base
     end
     messages
   end
-  
+
+  def combiner_count
+    total = 0
+
+    if recombiner_presence == "Yes"
+      recombiners.each do |recombiner|
+        total += recombiner.pv_array_tests.count
+      end
+    else
+      total = pv_array_tests.size
+    end
+
+    total
+  end
+
 end
