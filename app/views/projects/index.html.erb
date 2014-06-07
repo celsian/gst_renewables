@@ -3,21 +3,20 @@
     <thead>
       <tr>
         <th></th>
-        <th><h4>Project:</h4></th>
-        <th><h4>Reference Number:</h4></th>
+        <th><h4>Projects:</h4></th>
       </tr>
     </thead>
       <% @projects.each_with_index do |project, index| %>
         <tr>
-          <td width=40><%= index+1 %></td><td><%= link_to "#{project.name}", project %></td><td><%= project.reference_number %></td>
+          <td width=40><%= index+1 %></td><td><%= link_to "#{project.name}", project %></td>
         </tr>
       <% end %>
   </table>
 <% else %>
   <div class="row">
     <span class="span9">
-      <P><B><h4>No projects to display.</H4></B></P>
-      <P>Please check that your Reference Number is correct via the Profile link at the top right of this page. If you are still unable to access your project, please contact the GST: Renewables Division.</P>
+      <P><B><h3>No projects to display.</H3></B></P>
+      <P>Please wait for GST to attach your new account to your project. If you are still unable to access your project, please contact Clark Thompson at the Renewables Division: 855-GST-GST1 / info@igst.com</P>
       <BR>
       <BR>
       <BR>
