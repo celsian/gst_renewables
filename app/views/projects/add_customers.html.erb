@@ -1,0 +1,83 @@
+<h3>Project: <%= @project.name %></h3><h4>Search for Users by E-Mail:</h4>
+<%= form_tag add_customers_to_project_path, :method => :get, :class => "form-search" do %>
+  <%= text_field_tag :q, '',size: 10, autofocus: true %>
+  <%= submit_tag "Search", class: 'btn btn-mini' %>
+<% end %>
+
+<div class="row">
+  <div class="span5">
+      <table class="table table-striped" border=1>
+        <tr>
+          <th class="ck">
+            User:
+          </th>
+          <th class="ck" colspan="2" width="25%">
+            Action:
+          </th>
+        </tr>
+      <% if @users.length > 0 %>
+        <% @users.each do |user| %>
+          <tr>
+            <td>
+              <%= user.email %>
+            </td>
+            <td class="c">
+              <% if @project.users.exists?(user) %>
+                <%= link_to "Remove User", disassociate_user_from_project_path(@project.id, user.id, params[:q]) , class: "btn btn-mini btn-default" %>
+              <% else %>
+                <%= link_to "Add User", associate_user_to_project_path(@project.id, user.id, params[:q]), data: { confirm: "Are you sure you want to add #{user.email} as a Customer?" }, class: "btn btn-mini btn-success" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+    <% else %>
+      <td>No results...</td><td></td>
+    <% end %>
+    </table>
+    </div>
+      <div class="span4">
+        <table class="table table-striped" border=1>
+            <tr>
+              <th class="ck">
+                Current Users:
+              </th>
+              <th class="ck">
+                Action:
+              </th>
+            </tr>
+            <% @project.users.each do |user| %>
+              <tr>
+                <td>
+                  <%= user.email %>
+                </td>
+                <td>
+                  <center>
+                    <%= link_to "Remove User", disassociate_user_from_project_path(@project.id, user.id, params[:q]) , class: "btn btn-mini btn-default" %>
+                  </center>
+                </td>
+              </tr>
+            <% end %>
+            <% if @project.users.length == 0 %>
+              <tr>
+                <td colspan="2">
+                  <center>
+                    None
+                  </center>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+      </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
