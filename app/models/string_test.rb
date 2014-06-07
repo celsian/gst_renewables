@@ -27,6 +27,15 @@ class StringTest < ActiveRecord::Base
     self.array_insulation_resistance_neg ||= "<0.05"
   end
 
+  def self.remove_empty_lines(array_of_hashes)
+    (array_of_hashes.length-1).downto(0) do |count|
+      unless array_of_hashes[count][:string_test_voc].to_i > 1 || array_of_hashes[count][:string_test_voc] == "0.01"
+        array_of_hashes.delete_at(count)
+      end
+    end
+    array_of_hashes
+  end
+
   def self.import(file, pv_array_test)
     csv = CSV.open(file.path)
     csv.shift
@@ -37,31 +46,57 @@ class StringTest < ActiveRecord::Base
     string_data = csv.map {|row| row.map {|cell| cell.to_s } }
     array_of_hashes = string_data.map {|row| Hash[*headers.zip(row).flatten] }
 
-    backmarker = 0
+    #Remove empty lines
+    array_of_hashes = StringTest.remove_empty_lines(array_of_hashes)
 
-  #Begin the string_test creation logic 
+    ####### Separate Strings
+    all_strings = []
+    temp_strings = []
+
+    string_index = 0
+    temp_index = 0
+
     array_of_hashes.each_with_index do |row, index|
-      if row[:index].to_i >= 1 && row[:index].to_i <= 255
+      if row[:index].to_i >= 1 && row[:index].to_i <= 510
         if row[:string_test_voc].to_i > 1
 
           st = StringTest.new
-          st.name = index+1
+          st.name = string_index+1
           st.attributes = row.to_hash.slice(:string_test_voc, :string_test_isc, :string_test_irradiance)
           st.pv_array_test = pv_array_test
 
-
-
-          st.save
-          backmarker = index
+          temp_strings << st
+          string_index += 1
 
         elsif row[:string_test_voc] == "0.01"
+            temp_strings[temp_index].attributes = row.to_hash.slice(:string_test_voltage)
+            temp_index += 1
 
-          st = pv_array_test.string_tests[index-(backmarker+1)]
-          st.attributes = row.to_hash.slice(:string_test_voltage)
-          st.save
 
+          if (array_of_hashes[index+1] && array_of_hashes[index+1][:string_test_voc].to_i > 1 ) || !array_of_hashes[index+1]
+            all_strings_index = all_strings.length
+            all_strings[all_strings_index] = []
+
+            temp_strings.each do |string|
+              all_strings[all_strings_index] << string
+            end
+
+            temp_strings = []
+            temp_index = 0
+            string_index = 0
+          end
         end
       end
-    end #array_of_hashes
+    end
+
+    pv_commission = pv_array_test.pv_commission?
+    combiner_count = pv_commission.combiner_count-1
+    unless combiner_count >= all_strings.length
+      all_strings[combiner_count].each do |string|
+        string.save
+      end
+    end
+
   end #self.import
+
 end
