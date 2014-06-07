@@ -19,6 +19,11 @@ GstRenewables::Application.routes.draw do
   get "/admin/user/:id/add_admin/:q", to: "admins#add_admin", as: "add_admin"
   get "/admin/user/:id/add_editor/:q", to: "admins#add_editor", as: "add_editor"
 
+  
+  get "/projects/:id/add_customers", to: "projects#add_customers", as: "add_customers_to_project"
+  get "/projects/:id/associate_user/:user_id", to: "projects#associate_user", as: "associate_user_to_project"
+  get "/projects/:id/deassociate_user/:user_id", to: "projects#disassociate_user", as: "disassociate_user_from_project"
+
   # resources :projects do
   #   resources :pv_commissions do
   #     resources :pv_array_tests do
