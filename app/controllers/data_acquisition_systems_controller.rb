@@ -61,7 +61,7 @@ class DataAcquisitionSystemsController < ApplicationController
 
   def require_viewer
     project = DataAcquisitionSystem.find(params[:id]).pv_commission.project
-    unless project.reference_number == current_user.reference_number || current_user.admin || current_user.editor
+    unless project.users.exists?(current_user) || current_user.admin || current_user.editor
       redirect_to root_path, flash: { error: "You are not authorized to perform that action." }
     end
   end
