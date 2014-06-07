@@ -18,5 +18,13 @@ class PvArrayTest < ActiveRecord::Base
     end
     messages
   end
+
+  def pv_commission?
+    if recombiner
+      recombiner.pv_commission
+    else
+      pv_commission
+    end
+  end
   
 end
