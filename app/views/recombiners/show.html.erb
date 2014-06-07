@@ -57,4 +57,6 @@
     </tr>
   <% end %>
 </table>
-<%= link_to "New PV Array Test", new_pv_array_test_path(recombiner_id: @recombiner.id), class: "btn btn-small btn-primary" %>
+<% if current_user.editor || current_user.admin %>
+  <%= link_to "New PV Array Test", new_pv_array_test_path(recombiner_id: @recombiner.id), class: "btn btn-small btn-primary" %>
+<% end %>
