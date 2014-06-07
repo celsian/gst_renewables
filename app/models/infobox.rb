@@ -17,7 +17,7 @@ class Infobox < ActiveRecord::Base
    "Other"]
 
 
-  DATA_ACQUISITION_SYSTEM = ["Irradiance Readings", "Cell Temperature Readings", "Compare Power Measurement with Inverter Reading",
+  DATA_ACQUISITION_SYSTEM = ["Verify Irradiance Readings", "Verify Cell Temperature Readings", "Compare Power Measurement with Inverter Reading",
     "Verify Internet Connectivity", "Check for Alarm Reporting", "Inspect and Clean Weather Station"]
 
 end
