@@ -54,7 +54,6 @@ GEM
     coffee-script-source (1.7.0)
     colorize (0.7.3)
     commonjs (0.2.7)
-    daemon_controller (1.2.0)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -96,10 +95,6 @@ GEM
     net-ssh (2.9.1)
     newrelic_rpm (3.7.2.192)
     orm_adapter (0.5.0)
-    passenger (4.0.44)
-      daemon_controller (>= 1.2.0)
-      rack
-      rake (>= 0.8.1)
     pg (0.17.1)
     polyglot (0.3.3)
     pry (0.9.12.6)
@@ -203,7 +198,6 @@ DEPENDENCIES
   jquery-rails
   less-rails
   newrelic_rpm
-  passenger
   pg
   pry-rails
   rails (= 4.0.0)
