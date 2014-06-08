@@ -4,11 +4,6 @@ lock '3.2.1'
 set :application, 'gst_renewables'
 set :repo_url, 'git@github.com:celsian/gst_renewables.git'
 
-set :keep_releases, 5
-
-set :scm, :git
-set :branch, "master"
-
 set :use_sudo, false
 set :rails_env, "production"
 # Default branch is :master
@@ -22,7 +17,8 @@ set :deploy_via, :copy
 set :ssh_options, { :forward_agent => true, :port => 22 }
 
 # Default value for :scm is :git
-# set :scm, :git
+set :scm, :git
+set :branch, "master"
 
 # Default value for :format is :pretty
 # set :format, :pretty
@@ -38,18 +34,20 @@ set :ssh_options, { :forward_agent => true, :port => 22 }
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{... log ...}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 5
 
 namespace :deploy do
   desc "Symlink shared config files"
   task :symlink_config_files do
     on roles(:app), in: :sequence, wait: 0 do
       execute "ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+      execute "mkdir #{ current_path }/tmp"
     end
   end
 
