@@ -18,7 +18,8 @@ gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 
-gem 'rails_12factor', group: :production
+#This gem screws up logging for production deployments if you're not using HEROKU
+# gem 'rails_12factor', group: :production
 
 gem 'pry-rails'
 gem 'awesome_print'
