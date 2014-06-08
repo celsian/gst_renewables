@@ -61,6 +61,7 @@ group :production do
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
+  gem 'passenger'
 
   # gem 'capistrano-rbenv', "~> 2.0" 
 end
