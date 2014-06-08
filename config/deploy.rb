@@ -33,8 +33,8 @@ set :branch, "master"
 # set :linked_files, %w{config/database.yml}
 
 # Default value for linked_dirs is []
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-set :linked_dirs, %w{... log ...}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+# set :linked_dirs, %w{... log ...}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -47,7 +47,6 @@ namespace :deploy do
   task :symlink_config_files do
     on roles(:app), in: :sequence, wait: 0 do
       execute "ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
-      execute "mkdir #{ current_path }/tmp"
     end
   end
 
