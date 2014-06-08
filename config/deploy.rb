@@ -30,10 +30,10 @@ set :branch, "master"
 # set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 # set :linked_dirs, %w{... log ...}
 
 # Default value for default_env is {}
@@ -43,10 +43,11 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 set :keep_releases, 5
 
 namespace :deploy do
-  desc "Symlink shared config files"
-  task :symlink_config_files do
+  desc "Symlink shared files"
+  task :symlink_files do
     on roles(:app), in: :sequence, wait: 0 do
-      execute "ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+      # execute "ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+      execute "mkdir #{ current_path }/tmp"
     end
   end
 
@@ -71,4 +72,4 @@ namespace :deploy do
 
 end
 
-after "deploy", "deploy:symlink_config_files"
+after "deploy", "deploy:symlink_files"
