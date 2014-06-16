@@ -80,11 +80,12 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       within release_path do
-        execute "RAILS_ENV=production bundle exec rake db:migrate"
+        # execute :rake, 'cache:clear'
       end
     end
   end
 
 end
 
+after "deploy", "deploy:migrate"
 # after "deploy", "deploy:symlink_files"
