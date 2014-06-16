@@ -12,6 +12,12 @@ class PvCommissionsController < ApplicationController
     @pv_commission = PvCommission.find(params[:id])
     @rows = @pv_commission.row_count
     @project = @pv_commission.project
+
+    @recombiners = @pv_commission.recombiners
+    @visual_inspections = @pv_commission.visual_inspections
+    @pv_array_tests = @pv_commission.pv_array_tests
+    @inverter_inspections = @pv_commission.inverter_inspections
+    @data_acquisition_systems = @pv_commission.data_acquisition_systems
   end
 
   def new
@@ -20,6 +26,7 @@ class PvCommissionsController < ApplicationController
 
   def create
     @pv_commission = PvCommission.new(pv_commission_params)
+    @pv_commission.deleted = false
 
     if @pv_commission.save
       redirect_to @pv_commission, flash: {success: "PV Commission was created."}
@@ -48,9 +55,11 @@ class PvCommissionsController < ApplicationController
 
   def destroy
     pv_commission = PvCommission.find(params[:id])
+    pv_commission.deleted = true
     reference_number = pv_commission.reference_number
     project = pv_commission.project
-    pv_commission.destroy
+    pv_commission.save
+
     redirect_to project, flash: {success: "PV Commission ##{reference_number} was deleted."}
   end
 
