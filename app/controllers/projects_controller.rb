@@ -7,9 +7,9 @@ class ProjectsController < ApplicationController
 
   def index
     if current_user.editor || current_user.admin
-      @projects = Project.all
+      @projects = Project.where(deleted: false)
     elsif current_user.projects
-      @projects = current_user.projects
+      @projects = current_user.projects.where(deleted: false)
     else
       @projects = []
     end
@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @pv_commissions = @project.pv_commissions
+    @pv_commissions = @project.pv_commissions.where(deleted: false)
   end
 
   def new
@@ -26,6 +26,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new project_params
+    @project.deleted = false
 
     if @project.save
       # Note.create(student: @student, note: "Student #{@student.id_number} was created.")
@@ -83,7 +84,9 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    Project.find(params[:id]).destroy
+    project = Project.find(params[:id])
+    project.deleted = true
+    project.save
     redirect_to projects_path, flash: {success: "Project was deleted."}
   end
 
